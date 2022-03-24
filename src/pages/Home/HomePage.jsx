@@ -27,7 +27,7 @@ const HomePage = () => {
             <button className="btn primary-btn bold">JOIN NOW </button>
           </Link>
           <span>
-            Already have an Account?{" "}
+            Already have an Account?
             <Link to="/" className="sec-color undle">
               Login
             </Link>
