@@ -1,13 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
+import { logInHandler } from "../../services";
+import { useAuth } from "../../context/auth-context";
 
 const LoginPage = () => {
+  const { setUser } = useAuth();
+  const [logUser, setLogUser] = useState({
+    email: "",
+    pass: "",
+  });
+  const guestUser = {
+    email: "adarshbalika@gmail.com",
+    pass: "adarshBalika123",
+  };
+  const navigator = useNavigate();
   return (
     <div className="flex-row center-it">
       <img src="./assets/login.png" alt="profile" className="form-img-desk" />
       <div className="form-wrap">
-        <form className="flex-col center-it form-block" onSubmit={() => {}}>
+        <form className="flex-col center-it form-block" onSubmit={(e) => {
+              e.preventDefault();
+              logInHandler(logUser, setUser, navigator);
+            }}>
           <img src="./assets/profile.png" alt="profile" className="form-img" />
           <h2 className="form-title">LOGIN</h2>
           <label htmlFor="email" className="flex-col form-input-txt">
@@ -16,7 +31,7 @@ const LoginPage = () => {
               type="email"
               className="form-input-box"
               placeholder="monkstar@neog.camp"
-              onChange={() => {}}
+              onChange={(e) =>  setLogUser({ ...logUser, email: e.target.value })}
             />
           </label>
           <label htmlFor="password" className="flex-col form-input-txt">
@@ -26,7 +41,7 @@ const LoginPage = () => {
               placeholder="Enter password"
               required
               className="form-input-box"
-              onChange={(e) => {}}
+              onChange={(e) => setLogUser({ ...logUser, pass: e.target.value })}
             />
           </label>
           <div className="flex-row center-it form-mid">
@@ -37,7 +52,10 @@ const LoginPage = () => {
           <button type="submit" className="btn primary-btn">
             LOGIN
           </button>
-          <button className="btn card-btn" onClick={(e) => {}}>
+          <button className="btn card-btn" onClick={(e) => {
+            e.preventDefault();
+                logInHandler(guestUser, setUser, navigator);
+              }}>
             LOGIN as GUEST
           </button>
           <Link to="/signup" className="newAcc">
