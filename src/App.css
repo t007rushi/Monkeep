@@ -1,4 +1,6 @@
 @import url("https://unpkg.com/mockman-js@latest/dist/style.css");
+@import url("https://spectre-ui.netlify.app/documentation/styles.css");
+@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
 .App {
   text-align: center;
 }
