@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
 
-const HomePage = () => {
+export const HomePage = () => {
   return (
     <div className="home-intro flex-row">
       <div className="home-descr flex-col center-it spc-btwn">
@@ -13,13 +13,12 @@ const HomePage = () => {
           <h3>MEET YOUR MODERN DAY</h3>
           <h1 className="sec-color">Note Taking App</h1>
           <p>
-            We can't run from things getting out of hands ,
-            <p>  even Doctor Strange
-            Can't run from it🏃🏻‍♂️</p>
+            We can't run from things getting out of hands , <br />
+            even Doctor Strange Can't run from it🏃🏻‍♂️
           </p>
           <p>
             So, Your one stop solution is here, Make Notes 📝 to keep yourself
-            Accountable
+            Accountable✅
           </p>
         </div>
         <div className="flex-col gap-btwn">
@@ -28,7 +27,7 @@ const HomePage = () => {
           </Link>
           <span>
             Already have an Account?
-            <Link to="/" className="sec-color undle">
+            <Link to="/login" className="sec-color undle">
               Login
             </Link>
           </span>
@@ -38,5 +37,3 @@ const HomePage = () => {
     </div>
   );
 };
-
-export default HomePage;
