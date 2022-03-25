@@ -1,19 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import "./login.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import "./login.css";
 
 const LoginPage = () => {
   return (
     <div className="flex-row center-it">
-      <img src="./assets/login.png" alt="profile" className="form-img-desk" />   
+      <img src="./assets/login.png" alt="profile" className="form-img-desk" />
       <div className="form-wrap">
-    
-        <form
-          className="flex-col center-it login-block"
-          onSubmit={() => {
-          }}
-        >
-             <img src="./assets/profile.png" alt="profile" className="form-img" />
+        <form className="flex-col center-it form-block" onSubmit={() => {}}>
+          <img src="./assets/profile.png" alt="profile" className="form-img" />
           <h2 className="form-title">LOGIN</h2>
           <label htmlFor="email" className="flex-col form-input-txt">
             UserID/Email
@@ -21,8 +16,7 @@ const LoginPage = () => {
               type="email"
               className="form-input-box"
               placeholder="monkstar@neog.camp"
-              onChange={() =>{}
-              }
+              onChange={() => {}}
             />
           </label>
           <label htmlFor="password" className="flex-col form-input-txt">
@@ -32,8 +26,7 @@ const LoginPage = () => {
               placeholder="Enter password"
               required
               className="form-input-box"
-              onChange={(e) =>
-                {}}
+              onChange={(e) => {}}
             />
           </label>
           <div className="flex-row center-it form-mid">
@@ -44,11 +37,7 @@ const LoginPage = () => {
           <button type="submit" className="btn primary-btn">
             LOGIN
           </button>
-          <button
-            className="btn card-btn"
-            onClick={(e) => {
-            }}
-          >
+          <button className="btn card-btn" onClick={(e) => {}}>
             LOGIN as GUEST
           </button>
           <Link to="/signup" className="newAcc">
@@ -56,8 +45,8 @@ const LoginPage = () => {
           </Link>
         </form>
       </div>
-      </div>
-  )
-}
+    </div>
+  );
+};
 
-export default LoginPage
+export default LoginPage;
