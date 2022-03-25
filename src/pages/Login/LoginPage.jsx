@@ -1,20 +1,19 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./login.css";
-import { logInHandler } from "../../services";
 import { useAuth } from "../../context/auth-context";
 
-const LoginPage = () => {
-  const { setUser } = useAuth();
+export const LoginPage = () => {
+  const { logInHandler } = useAuth();
   const [logUser, setLogUser] = useState({
     email: "",
-    pass: "",
+    password: "",
   });
   const guestUser = {
     email: "adarshbalika@gmail.com",
-    pass: "adarshBalika123",
+    password: "adarshBalika123",
   };
-  const navigator = useNavigate();
+ 
   return (
     <div className="flex-row center-it">
       <div className="form-wrap">
@@ -22,7 +21,7 @@ const LoginPage = () => {
           className="flex-col center-it form-block"
           onSubmit={(e) => {
             e.preventDefault();
-            logInHandler(logUser, setUser, navigator);
+            logInHandler(logUser);
           }}
         >
           <img src="./assets/profile.png" alt="profile" className="form-img img-resp" />
@@ -45,7 +44,7 @@ const LoginPage = () => {
               placeholder="Enter password"
               required
               className="form-input-box"
-              onChange={(e) => setLogUser({ ...logUser, pass: e.target.value })}
+              onChange={(e) => setLogUser({ ...logUser, password: e.target.value })}
             />
           </label>
           <div className="flex-row center-it form-mid">
@@ -60,7 +59,7 @@ const LoginPage = () => {
             className="btn card-btn"
             onClick={(e) => {
               e.preventDefault();
-              logInHandler(guestUser, setUser, navigator);
+              logInHandler(guestUser);
             }}
           >
             LOGIN as GUEST
@@ -74,4 +73,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+// export LoginPage;
