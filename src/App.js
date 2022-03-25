@@ -1,7 +1,7 @@
 import "./App.css";
 import Mockman from "mockman-js";
 import { Route, Routes } from "react-router-dom";
-import { HomePage, LoginPage, SignupPage, NotesPage } from "./pages/index";
+import { HomePage, LoginPage, NotesPage } from "./pages/index";
 import ProtectedRoute from "./Router/ProtectedRoute"
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <Route path="/" element={<HomePage />}></Route>
       <Route path="/mock" element={<Mockman />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
-      <Route path="/signup" element={<SignupPage />}></Route>
+      {/* <Route path="/signup" element={<SignupPage />}></Route> */}
       {/* Protected Routes */}
       <Route
         path="/notes"
