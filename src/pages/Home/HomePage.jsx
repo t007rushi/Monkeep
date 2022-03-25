@@ -28,7 +28,7 @@ const HomePage = () => {
           </Link>
           <span>
             Already have an Account?
-            <Link to="/" className="sec-color undle">
+            <Link to="/login" className="sec-color undle">
               Login
             </Link>
           </span>
