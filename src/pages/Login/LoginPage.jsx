@@ -13,7 +13,7 @@ export const LoginPage = () => {
     email: "adarshbalika@gmail.com",
     password: "adarshBalika123",
   };
- 
+
   return (
     <div className="flex-row center-it">
       <div className="form-wrap">
@@ -24,7 +24,11 @@ export const LoginPage = () => {
             logInHandler(logUser);
           }}
         >
-          <img src="./assets/profile.png" alt="profile" className="form-img img-resp" />
+          <img
+            src="./assets/profile.png"
+            alt="profile"
+            className="form-img img-resp"
+          />
           <h2 className="form-title">LOGIN</h2>
           <label htmlFor="email" className="flex-col form-input-txt">
             UserID/Email
@@ -44,7 +48,9 @@ export const LoginPage = () => {
               placeholder="Enter password"
               required
               className="form-input-box"
-              onChange={(e) => setLogUser({ ...logUser, password: e.target.value })}
+              onChange={(e) =>
+                setLogUser({ ...logUser, password: e.target.value })
+              }
             />
           </label>
           <div className="flex-row center-it form-mid">
@@ -72,5 +78,3 @@ export const LoginPage = () => {
     </div>
   );
 };
-
-// export LoginPage;
