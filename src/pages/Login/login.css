@@ -8,8 +8,8 @@
 
 /* form image */
 .form-img {
-  width: 40%;
-  height: 40%;
+  width: 25%;
+  height: 25%;
 }
 .form-mid {
   margin: 1rem;
@@ -50,21 +50,4 @@
 
 .acc-color {
   accent-color: var(--secondary-color);
-}
-
-.form-img-desk {
-  width: 10rem;
-  height: 50%;
-  margin-top: 6rem;
-}
-
-@media only screen and (min-width: 455px) {
-  .form-img-desk {
-    width: 40%;
-  }
-}
-@media only screen and (max-width: 765px) {
-  .form-img-desk {
-    display: none;
-  }
 }
