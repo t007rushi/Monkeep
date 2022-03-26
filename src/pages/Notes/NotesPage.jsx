@@ -1,6 +1,9 @@
-import React from "react";
+import React from 'react'
+import { useAuth } from '../../context/auth-context'
+import { signOutHandler } from '../../services'
 
 export const NotesPage = () => {
+  const {setUser} = useAuth()
   return (
     <nav class="flex-row header-bar">
       <div class="flex-row header-left">
