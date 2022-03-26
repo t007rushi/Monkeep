@@ -22,7 +22,7 @@ export const HomePage = () => {
           </p>
         </div>
         <div className="flex-col gap-btwn">
-          <Link to="/" className="undle">
+          <Link to="/signup" className="undle">
             <button className="btn primary-btn bold">JOIN NOW </button>
           </Link>
           <span>
