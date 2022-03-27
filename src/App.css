@@ -1,4 +1,10 @@
 @import url("https://unpkg.com/mockman-js@latest/dist/style.css");
 @import url("https://spectre-ui.netlify.app/documentation/styles.css");
-@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+body{
+font-family: sans-serif;
+}
+
+.cur-point{
+cursor: pointer;
+}
