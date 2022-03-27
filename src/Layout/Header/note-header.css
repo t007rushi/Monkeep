@@ -1,0 +1,56 @@
+.log-out {
+  width: 6rem;
+}
+
+.header-left {
+  width: 12rem;
+}
+
+.header-mid {
+  width: 40rem;
+}
+.search-bar {
+  width: 40rem;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+.search-bar:focus {
+  outline: none;
+}
+
+.header-bar {
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  height: 3.8rem;
+  border-bottom: 1px solid black;
+  padding: 1rem;
+}
+.header-right {
+  width: 10rem;
+}
+
+.ham-burger:focus {
+  background-color: #e9e9e9;
+  color: white;
+}
+
+.ham-burger {
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+@media only screen and (max-width: 1020px) {
+  .header-mid {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1020px) {
+  .icon-active {
+    display: none;
+  }
+}
