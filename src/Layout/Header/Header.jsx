@@ -3,19 +3,20 @@ import "./note-header.css";
 import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import { MdDarkMode, MdLogout } from "react-icons/md";
 
-const Header = ({toggle}) => {
-
+const Header = ({ toggle }) => {
   return (
-    <header class="flex-row header-bar">
-      <div class="flex-row spc-btwn header-left">
-    <button className="ham-burger" onClick={toggle}>  <AiOutlineMenu className="header-icon" /> </button>  
-        <h1 class="flex-row web-logo">Monkeep</h1>
+    <header className="flex-row header-bar">
+      <div className="flex-row spc-btwn header-left">
+        <button className="ham-burger" onClick={toggle}>
+          <AiOutlineMenu className="header-icon" />
+        </button>
+        <h1 className="flex-row web-logo">Monkeep</h1>
       </div>
-      <div class="flex-row header-mid">
+      <div className="flex-row header-mid">
         <AiOutlineSearch className="header-icon" />
-        <input type="text" placeholder="Search" class="search-bar" />
+        <input type="text" placeholder="Search" className="search-bar" />
       </div>
-      <div class="flex-row header-right">
+      <div className="flex-row header-right">
         <AiOutlineSearch className="icon-active header-icon" />
         <MdDarkMode className="header-icon" />
         <MdLogout className="header-icon" />
