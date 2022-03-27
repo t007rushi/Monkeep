@@ -1,6 +1,9 @@
 @import url("https://unpkg.com/mockman-js@latest/dist/style.css");
 @import url("https://spectre-ui.netlify.app/documentation/styles.css");
 
+:root{
+--hover-color:#e9e9e9 ;
+}
 body{
 font-family: sans-serif;
 }
