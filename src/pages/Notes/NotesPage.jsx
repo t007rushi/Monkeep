@@ -1,30 +1,15 @@
-import React from 'react'
-import { useAuth } from '../../context/auth-context'
-import { signOutHandler } from '../../services'
+import React,{ useState} from "react";
+import Sidebar from "../../Layout/sidebar/Sidebar";
+import Header from "../../Layout/Header/Header";
 
 export const NotesPage = () => {
-  const {setUser} = useAuth()
-  return (
-    <nav class="flex-row header-bar">
-      <div class="flex-row header-left">
-        <i class="material-icons header-icon"> menu </i>
+  const [sidebar,setSidebar] = useState(false);
 
-        <h1 class="web-logo" >MonKeep</h1>
-      </div>
-      <div>
-        <i class="material-icons header-icon"> search </i>
-        <input type="text" />
-      </div>
-      <div class="flex-row header-right">
-        <span class="material-icons">format_list_bulleted</span>
-        {/* <span class="material-icons">grid_view</span> */}
-        <div class="flex-row">
-          <i class="material-icons header-icon"> dark_mode </i>
-          {/* <i class="material-icons header-icon"> light_mode </i> */}
-        </div>
-        <i class="material-icons header-icon"> account_circle </i>
-        <i class="material-icons header-icon"> logout </i>
-      </div>
-    </nav>
+  const toggle = () => setSidebar(!sidebar)
+  return (
+    <div className="notes">
+      <Header toggle={toggle}/>
+      <Sidebar sidebar ={sidebar}/>
+    </div>
   );
 };
