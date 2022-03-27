@@ -9,7 +9,6 @@ const Header = ({toggle}) => {
     <header class="flex-row header-bar">
       <div class="flex-row spc-btwn header-left">
     <button className="ham-burger" onClick={toggle}>  <AiOutlineMenu className="header-icon" /> </button>  
-
         <h1 class="flex-row web-logo">Monkeep</h1>
       </div>
       <div class="flex-row header-mid">
