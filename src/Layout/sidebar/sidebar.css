@@ -6,7 +6,7 @@
   padding: 1rem;
   position: fixed;
   top: 4.3rem;
-  border-right: 1px solid black;
+  border-right: 1px solid var(--cta-color);
   left: -100%;
   transition: 850ms;
 }
@@ -14,4 +14,14 @@
 .sidebar.active{
    left: 0;
    transition: 550ms;
+}
+
+.sidebar-item{
+  padding: 6px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.sidebar-item:hover {
+background-color: var(--hover-color);
 }

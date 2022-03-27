@@ -24,7 +24,7 @@
   position: fixed;
   top: 0;
   height: 3.8rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--cta-color);
   padding: 1rem;
 }
 .header-right {
@@ -32,15 +32,15 @@
 }
 
 .ham-burger:focus {
-  background-color: #e9e9e9;
-  color: white;
+  background-color:var(--hover-color)  ;
+  color:var(--white-color);
 }
 
-.ham-burger {
-  border: none;
-  background-color: white;
-  border-radius: 50%;
-  padding: 5px;
+.ham-burger{
+border:none;
+background-color:var(--white-color);
+border-radius:50%;
+padding:3px;
 }
 
 @media only screen and (max-width: 1020px) {
