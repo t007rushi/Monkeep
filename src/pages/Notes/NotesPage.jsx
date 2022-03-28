@@ -1,12 +1,15 @@
-import React from 'react'
-import { useAuth } from '../../context/auth-context'
-import { signOutHandler } from '../../services'
+import React,{ useState} from "react";
+import Sidebar from "../../Layout/sidebar/Sidebar";
+import Header from "../../Layout/Header/Header";
 
 export const NotesPage = () => {
-  const {setUser} = useAuth()
+  const [sidebar,setSidebar] = useState(false);
+
+  const toggle = () => setSidebar(!sidebar)
   return (
-    <div>NotesPage
-<button onClick={() =>signOutHandler(setUser)}>LogOut</button>
+    <div className="notes">
+      <Header toggle={toggle}/>
+      <Sidebar sidebar ={sidebar}/>
     </div>
-  )
-}
+  );
+};

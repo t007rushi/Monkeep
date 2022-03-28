@@ -1,0 +1,56 @@
+.log-out {
+  width: 6rem;
+}
+
+.header-left {
+  width: 12rem;
+}
+
+.header-mid {
+  width: 40rem;
+}
+.search-bar {
+  width: 40rem;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+.search-bar:focus {
+  outline: none;
+}
+
+.header-bar {
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  height: 3.8rem;
+  border-bottom: 1px solid var(--cta-color);
+  padding: 1rem;
+}
+.header-right {
+  width: 10rem;
+}
+
+.ham-burger:focus {
+  background-color:var(--hover-color)  ;
+  color:var(--white-color);
+}
+
+.ham-burger{
+border:none;
+background-color:var(--white-color);
+border-radius:50%;
+padding:3px;
+}
+
+@media only screen and (max-width: 1020px) {
+  .header-mid {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1020px) {
+  .icon-active {
+    display: none;
+  }
+}
