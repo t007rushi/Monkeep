@@ -3,7 +3,7 @@ import "./sidebar.css";
 import { useNavigate } from "react-router-dom";
 import sidebarData from "../../data/sidebarData";
 
-const Sidebar = ({ sidebar }) => {
+export const Sidebar = ({ sidebar }) => {
   const navigator = useNavigate();
 
   return (
@@ -25,4 +25,3 @@ const Sidebar = ({ sidebar }) => {
   );
 };
 
-export default Sidebar;

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import Sidebar from "../../Layout/sidebar/Sidebar";
-import Header from "../../Layout/Header/Header";
-import CreateNote from "../../components/CreateNote/CreateNote";
-import Note from "../../components/Note/Note";
+import {Sidebar,Header} from "../../Layout/index.js";
+import {CreateNote,Note} from "../../components/index.js"
 import "./notes.css"
 
 export const NotesPage = () => {

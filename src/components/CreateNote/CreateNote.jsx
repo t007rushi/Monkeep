@@ -3,7 +3,7 @@ import "./create-note.css";
 import Editor from "../Editor/Editor";
 import { MdOutlineColorLens } from "react-icons/md";
 
-const CreateNote = () => {
+export const CreateNote = () => {
   const [expand, setExpand] = useState(false);
   const closer = () => {
     setExpand(false);
@@ -41,4 +41,4 @@ const CreateNote = () => {
   );
 };
 
-export default CreateNote;
+
