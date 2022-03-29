@@ -4,10 +4,12 @@
   overflow: hidden;
   padding: 1rem;
   position: fixed;
-  top: 4.3rem;
+  top: 3.8rem;
   border-right: 1px solid var(--cta-color);
   left: -100%;
   transition: 850ms;
+  background-color:var(--white-color);
+  z-index: 1;
 }
 
 .sidebar.active{
@@ -17,10 +19,25 @@
 
 .sidebar-item{
   padding: 6px;
+  height:2.5rem;
   width: 100%;
   border-radius: 10px;
 }
 
 .sidebar-item:hover {
 background-color: var(--hover-color);
+}
+
+.side-hide{
+  display: none;
+}
+
+.active{
+  transition: all .1s ease-out;
+}
+
+@media only screen and (max-width:750px){
+  .sidebar{
+      padding:0;
+  }
 }
