@@ -1,0 +1,58 @@
+.create-note {
+  width: fit-content;
+  margin-top: 6rem;
+  margin-left: 5rem;
+  border: 1px solid var(--cta-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.note-options {
+  height: 3rem;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+}
+
+.label-txt {
+  width: 7rem;
+  height: 2rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+.note-title {
+  width: 17rem;
+  background-color: var(--hover-color);
+  border: none;
+  outline: none;
+  height: 2rem;
+  margin-right: auto;
+}
+
+.add-btn {
+  width: 5rem;
+  height: 2.5rem;
+}
+
+@media only screen and (max-width: 650px) {
+  .create-note {
+    margin-left: 1rem;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .create-note {
+    width: 42rem;
+  }
+  .note-title {
+    width: 100%;
+  }
+}
