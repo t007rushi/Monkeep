@@ -1,6 +1,6 @@
 import axios from "axios";
 
-//ADD TO CART
+//ADD A NOTE
 export const addNotesService = async (NoteContent, user) => {
   try {
     const { data } = await axios.post(
@@ -14,6 +14,6 @@ export const addNotesService = async (NoteContent, user) => {
     );
     return data;
   } catch (error) {
-    console.error("Noteerror", error);
+    console.error("Note add error", error);
   }
 };

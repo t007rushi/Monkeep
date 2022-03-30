@@ -1,6 +1,6 @@
 import axios from "axios";
 
-//REMOVE/DELETE FROM Cart
+//REMOVE/DELETE FROM NOTE COllection
 export const removeFromNotesService = async (id, user) => {
   try {
     const { data } = await axios.delete(`/api/notes/${id}`, {
@@ -10,6 +10,6 @@ export const removeFromNotesService = async (id, user) => {
     });
     return data;
   } catch (error) {
-    console.error("cart error", error);
+    console.error("note fetch error", error);
   }
 };

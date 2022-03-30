@@ -40,7 +40,7 @@ export const CreateNote = () => {
         placeholder={expand ? "Title" : "Take a Note..."}
         onChange={(e) => setNotedata({ ...notedata, title: e.target.value })}
       />
-      {expand ? (
+      {expand && (
         <div>
           <Editor handleInput={handleInput} />
           <nav className="flex-row note-options">
@@ -61,7 +61,7 @@ export const CreateNote = () => {
             </button>
           </nav>
         </div>
-      ) : null}
+      ) }
     </form>
   );
 };
