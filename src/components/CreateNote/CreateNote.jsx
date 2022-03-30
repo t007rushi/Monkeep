@@ -6,10 +6,10 @@ import { useNotes } from "../../context/notes-context";
 
 export const CreateNote = () => {
   const [expand, setExpand] = useState(false);
-  const closer = () => {
+  const closerEditor = () => {
     setExpand(false);
   };
-  const expander = () => {
+  const expandEditor = () => {
     setExpand(true);
   };
 
@@ -18,7 +18,7 @@ export const CreateNote = () => {
     description: "",
     label: "",
   });
-  
+
   const { addNotes } = useNotes();
   const handleInput = (e) => {
     setNotedata({ ...notedata, description: e });
@@ -28,12 +28,15 @@ export const CreateNote = () => {
       className="create-note"
       onSubmit={(e) => {
         e.preventDefault();
+        closerEditor();
         addNotes(notedata);
+        setNotedata({ title: "", description: "", label: "" });
       }}
     >
       <input
         className="note-title"
-        onClick={expander}
+        value={notedata.title}
+        onClick={expandEditor}
         placeholder={expand ? "Title" : "Take a Note..."}
         onChange={(e) => setNotedata({ ...notedata, title: e.target.value })}
       />
@@ -53,7 +56,7 @@ export const CreateNote = () => {
             <button type="submit" className="btn primary-btn add-btn">
               Add
             </button>
-            <button className="btn secondary-btn add-btn" onClick={closer}>
+            <button className="btn secondary-btn add-btn" onClick={closerEditor}>
               Close
             </button>
           </nav>

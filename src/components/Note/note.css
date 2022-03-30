@@ -1,6 +1,12 @@
 .note {
   border: 1px solid black;
-  padding: 1rem;
+  padding: 7px;
+  min-width: 12rem;
+  min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 5px;
 }
 
 .note-collection {
@@ -8,7 +14,6 @@
   flex-wrap: wrap;
   margin: 3rem;
   gap: 1.5rem;
-  background-color: var(--hover-color);
 }
 
 .note-descr {
@@ -18,4 +23,10 @@
 .note-descr img {
   width: 10rem;
   height: 10rem;
+}
+
+.note-options-set {
+  justify-content: flex-end;
+  cursor: pointer;
+  gap: 10px;
 }
