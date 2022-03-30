@@ -1,0 +1,11 @@
+.edit {
+  min-height: 50px;
+  width: 20rem;
+  z-index: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .edit {
+    width: 41rem;
+  }
+}

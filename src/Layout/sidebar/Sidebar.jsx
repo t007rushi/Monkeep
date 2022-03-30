@@ -3,12 +3,12 @@ import "./sidebar.css";
 import { useNavigate } from "react-router-dom";
 import sidebarData from "../../data/sidebarData";
 
-const Sidebar = ({ sidebar }) => {
+export const Sidebar = ({ sidebar }) => {
   const navigator = useNavigate();
 
   return (
-    <nav className={sidebar ? "sidebar active" : "sidebar"}>
-      <ul className="flex-row flex-col spc-btwn  gap-btwn">
+ 
+      <ul className="flex-row flex-col  gap-btwn sidebar active">
         {sidebarData.map(({ title, navigate, Icon }) => {
           return (
             <li
@@ -17,13 +17,11 @@ const Sidebar = ({ sidebar }) => {
               onClick={() => navigator(navigate)}
             >
               <Icon />
-              <span>{title}</span>
+              <span className={sidebar ? "side-hide" : "active"}>{title}</span>
             </li>
           );
         })}
       </ul>
-    </nav>
   );
 };
 
-export default Sidebar;

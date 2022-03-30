@@ -4,11 +4,7 @@ import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ ProtectedComp }) => {
   const { user } = useAuth();
-  return (
-    <div>
-      {user.isUserLoggedIn ? ProtectedComp : <Navigate replace to="/login" />}
-    </div>
-  );
+  return user.isUserLoggedIn ? ProtectedComp : <Navigate replace to="/login" />;
 };
 
 export default ProtectedRoute;

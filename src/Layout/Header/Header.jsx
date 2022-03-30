@@ -3,7 +3,7 @@ import "./note-header.css";
 import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import { MdDarkMode, MdLogout } from "react-icons/md";
 
-const Header = ({ toggle }) => {
+export const Header = ({ toggle }) => {
   return (
     <header className="flex-row header-bar">
       <div className="flex-row spc-btwn header-left">
@@ -25,4 +25,3 @@ const Header = ({ toggle }) => {
   );
 };
 
-export default Header;
