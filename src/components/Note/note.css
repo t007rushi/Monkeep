@@ -1,0 +1,21 @@
+.note {
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.note-collection {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3rem;
+  gap: 1.5rem;
+  background-color: var(--hover-color);
+}
+
+.note-descr {
+  width: 100%;
+}
+
+.note-descr img {
+  width: 10rem;
+  height: 10rem;
+}

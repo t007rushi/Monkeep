@@ -4,7 +4,7 @@
 
 .note-content{
     flex-grow: 1;
-    height: 100vh;
+    height: 100%;
     margin-left:11rem;
     margin-top: 3.8rem;
     background-color:var(--hover-color);
