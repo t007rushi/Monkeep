@@ -4,7 +4,7 @@ import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import { MdDarkMode, MdLogout } from "react-icons/md";
 import { useTheme } from "../../context/theme-context";
 
-const Header = ({ toggle }) => {
+export const Header = ({ toggle }) => {
   const {toggleTheme} = useTheme();
   return (
     <header className="flex-row header-bar">
@@ -27,4 +27,3 @@ const Header = ({ toggle }) => {
   );
 };
 
-export default Header;
