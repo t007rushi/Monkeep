@@ -2,7 +2,7 @@ import { useState, useLayoutEffect, createContext, useContext } from "react";
 
 const ThemeContext = createContext();
 
-const LocalTheme = () => localStorage.getItem("MONK_THEME");
+const LocalTheme = () => localStorage.getItem("note_theme");
 
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(LocalTheme);
@@ -11,7 +11,7 @@ const ThemeProvider = ({ children }) => {
     setTheme((theme) => (theme === "light" ? "dark" : "light"));
 
   useLayoutEffect(() => {
-    localStorage.setItem("MONK_THEME", theme);
+    localStorage.setItem("note_theme", theme);
     if (theme === "light") {
       document.documentElement.classList.remove("dark-theme");
       document.documentElement.classList.add("light-theme");
