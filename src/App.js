@@ -15,7 +15,9 @@ function App() {
       <Route
         path="/notes"
         element={
-          <ProtectedRoute ProtectedComp={<NotesPage />}></ProtectedRoute>
+          <ProtectedRoute ProtectedComp={
+          <NotesPage />
+        }></ProtectedRoute>
         }
       ></Route>
     </Routes>

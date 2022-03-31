@@ -1,16 +1,12 @@
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { useState } from "react";
 import "./editor.css";
 
-export default function App() {
-  const [convertedText, setConvertedText] = useState("");
-
+export default function Editor({ handleInput }) {
   return (
     <ReactQuill
       theme="snow"
-      value={convertedText}
-      onChange={setConvertedText}
+      onChange={handleInput}
       className="edit"
       modules={modules}
       formats={formats}
