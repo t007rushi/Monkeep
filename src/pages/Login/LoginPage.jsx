@@ -24,13 +24,8 @@ export const LoginPage = () => {
             logInHandler(logUser);
           }}
         >
-          <img
-            src="./assets/profile.png"
-            alt="profile"
-            className="form-img img-resp"
-          />
           <h2 className="form-title">LOGIN</h2>
-          <label htmlFor="email" className="flex-col form-input-txt">
+          <label htmlFor="email" className="flex-col gap-btwn form-input-txt">
             UserID/Email
             <input
               type="email"
@@ -41,7 +36,7 @@ export const LoginPage = () => {
               }
             />
           </label>
-          <label htmlFor="password" className="flex-col form-input-txt">
+          <label htmlFor="password" className="flex-col gap-btwn form-input-txt">
             Password
             <input
               type="password"

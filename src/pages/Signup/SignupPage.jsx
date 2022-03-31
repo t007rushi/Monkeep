@@ -21,9 +21,8 @@ export const SignupPage = () => {
             signUpHandler(signUser);
           }}
         >
-          <img src="./assets/profile.png" alt="profile" className="form-img" />
           <h2 className="form-title">SIGN UP</h2>
-          <label htmlFor="Name" className="flex-col form-input-txt">
+          <label htmlFor="Name" className="flex-col gap-btwn form-input-txt">
             First Name
             <input
               type="text"
@@ -33,7 +32,7 @@ export const SignupPage = () => {
               }
             />
           </label>
-          <label htmlFor="Name" className="flex-col form-input-txt">
+          <label htmlFor="Name" className="flex-col gap-btwn form-input-txt">
             Last Name
             <input
               type="text"
@@ -43,7 +42,7 @@ export const SignupPage = () => {
               }
             />
           </label>
-          <label htmlFor="email" className="flex-col form-input-txt">
+          <label htmlFor="email" className="flex-col gap-btwn form-input-txt">
             Email
             <input
               type="email"
@@ -57,7 +56,7 @@ export const SignupPage = () => {
           <label
             htmlFor="password"
             required
-            className="flex-col form-input-txt"
+            className="flex-col gap-btwn form-input-txt"
           >
             Password
             <input
