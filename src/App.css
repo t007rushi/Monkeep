@@ -1,50 +1,56 @@
 @import url("https://unpkg.com/mockman-js@latest/dist/style.css");
 @import url("https://spectre-ui.netlify.app/documentation/styles.css");
 
-body{
-font-family: sans-serif;
+body {
+  font-family: sans-serif;
 }
 
-.cur-point{
-cursor: pointer;
+.cur-point {
+  cursor: pointer;
 }
 
 .light-theme {
-    --color-background: #ffffff;
-    --color-background-transparent: #ffffff80;
-    --color-foreground: #252525;
+  --background-color: #ffffff;
+  --foreground-color: #252525;
+  --hover-bg-color: #e9e9e9;
 
-    --color-accent-one:#ffffff;
-    --color-accent-two:#F1F3F4;
-/* FFFFFF F1F3F4 F8F8F8*/
-    --note-color-1: #f28b82;
-    --note-color-2: #fbbc04;
-    --note-color-3: #fff475;
-    --note-color-4: #ccff90;
-    --note-color-5: #a7ffeb;
-    --note-color-6: #cbf0f8;
-    --note-color-7: #aecbfa;
-    --note-color-8: #d7aefb;
-    --note-color-9: #fdcfe8;
-  }
-  
-  .dark-theme {
-    --color-background: #181818;
-    --color-background-transparent: #25252580;
-    --color-foreground: #ffffff;
+  --accent-one-color: #ffffff;
+  --accent-two-color: #f1f3f4;
+  --accent-three-color: #f8f8f8;
 
-    --color-accent-one:#303030;
-    /* 202020 */
-    --color-accent-two:#111111;
-    /* 121212 */
-    
-    --note-color-1: #5c2b29;
-    --note-color-2: #614a19;
-    --note-color-3: #635d19;
-    --note-color-4: #345920;
-    --note-color-5: #16504b;
-    --note-color-6: #2d555e;
-    --note-color-7: #1e3a5f;
-    --note-color-8: #42275E;
-    --note-color-9: #5B2245 ;
-  }
+  /* Notes bg Colors */
+  --note-color-1: #f28b82;
+  --note-color-2: #fbbc04;
+  --note-color-3: #fff475;
+  --note-color-4: #ccff90;
+  --note-color-5: #a7ffeb;
+  --note-color-6: #cbf0f8;
+  --note-color-7: #aecbfa;
+  --note-color-8: #d7aefb;
+  --note-color-9: #fdcfe8;
+}
+
+.dark-theme {
+  --background-color: #181818;
+  --foreground-color: #ffffff;
+  --hover-bg-color: #3b3b3b;
+
+  --accent-one-color: #303030;
+  --accent-two-color: #111111;
+  --accent-three-color: #202020;
+
+  --note-color-1: #5c2b29;
+  --note-color-2: #614a19;
+  --note-color-3: #635d19;
+  --note-color-4: #345920;
+  --note-color-5: #16504b;
+  --note-color-6: #2d555e;
+  --note-color-7: #1e3a5f;
+  --note-color-8: #42275e;
+  --note-color-9: #5b2245;
+}
+
+.App {
+  background-color: var(--background-color);
+  height: 100vh;
+}
