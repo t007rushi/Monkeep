@@ -4,6 +4,31 @@
   z-index: 0;
 }
 
+/* quill */
+.ql-snow .ql-stroke {
+  stroke: var(--foreground-color);
+}
+
+.ql-snow .ql-stroke:hover {
+  stroke: var(--primary-color);
+}
+
+.ql-toolbar.ql-snow {
+  border: none;
+}
+
+.ql-container.ql-snow {
+  border: none;
+}
+
+.ql-editor * {
+  color: white;
+}
+
+.ql-snow .ql-picker {
+  color: var(--foreground-color);
+}
+
 @media only screen and (min-width: 768px) {
   .edit {
     width: 41rem;
