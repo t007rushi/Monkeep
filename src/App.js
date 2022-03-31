@@ -6,6 +6,7 @@ import ProtectedRoute from "./Router/ProtectedRoute"
 
 function App() {
   return (
+    <div className="App">
     <Routes>
       <Route path="/" element={<HomePage />}></Route>
       <Route path="/mock" element={<Mockman />}></Route>
@@ -21,6 +22,7 @@ function App() {
         }
       ></Route>
     </Routes>
+    </div>
   );
 }
 
