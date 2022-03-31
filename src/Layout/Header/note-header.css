@@ -24,23 +24,26 @@
   position: fixed;
   top: 0;
   height: 3.8rem;
-  border-bottom: 1px solid var(--cta-color);
+  border-bottom: 1px solid var(--color-foreground);
   padding: 1rem;
+  background-color: var(--color-accent-one);
 }
 .header-right {
   width: 10rem;
 }
 
+.header-icon {
+  color: var(--color-foreground);
+}
 .ham-burger:focus {
-  background-color:var(--hover-color)  ;
-  color:var(--white-color);
+  background-color: var(--color-background-transparent);
 }
 
-.ham-burger{
-border:none;
-background-color:var(--white-color);
-border-radius:50%;
-padding:3px;
+.ham-burger {
+  border: none;
+  background-color: var(--color-accent-one);
+  border-radius: 50%;
+  padding: 3px;
 }
 
 @media only screen and (max-width: 1020px) {
