@@ -1,5 +1,5 @@
 .note {
-  border: 1px solid black;
+  border: 1px solid var(--foreground-color);
   padding: 7px;
   min-width: 12rem;
   min-height: 5rem;
@@ -7,6 +7,7 @@
   flex-direction: column;
   gap: 5px;
   border-radius: 5px;
+  color: var(--foreground-color);
 }
 
 .note-collection {
