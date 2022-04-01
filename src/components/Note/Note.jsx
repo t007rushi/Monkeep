@@ -6,8 +6,6 @@ import { RiInboxArchiveLine } from "react-icons/ri";
 import { MdOutlineColorLens } from "react-icons/md";
 import Masonry from "react-masonry-css";
 
-//...
-
 export const Note = () => {
   const { note, removeFromnote } = useNotes();
   return (
