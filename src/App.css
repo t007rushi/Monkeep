@@ -51,6 +51,9 @@ body {
 }
 
 .App {
-  background-color: var(--background-color);
   height: 100vh;
+}
+
+body{
+  background-color: var(--background-color);
 }

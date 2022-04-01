@@ -6,7 +6,6 @@
   flex-grow: 1;
   margin-left: 11rem;
   margin-top: 3.8rem;
-  background-color: var(--background-color);
 }
 
 .note-hide {
@@ -19,11 +18,5 @@
   }
   .note-content {
     margin-left: 2rem;
-  }
-}
-
-@media only screen and (min-width: 750px) {
-  .note-content {
-    height: 100vh;
   }
 }
