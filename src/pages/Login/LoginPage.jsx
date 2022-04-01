@@ -57,7 +57,7 @@ export const LoginPage = () => {
             LOGIN
           </button>
           <button
-            className="btn card-btn"
+            className="btn card-btn guest-log-btn"
             onClick={(e) => {
               e.preventDefault();
               logInHandler(guestUser);

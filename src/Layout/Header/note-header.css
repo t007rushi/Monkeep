@@ -46,6 +46,7 @@
   font-size: 1rem;
   margin-right: 3rem;
   background-color: var(--foreground-color);
+  color: var(--background-color)
 }
 
 .header-icon {

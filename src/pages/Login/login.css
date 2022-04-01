@@ -51,3 +51,8 @@
 .acc-color {
   accent-color: var(--secondary-color);
 }
+
+.guest-log-btn{
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+}
