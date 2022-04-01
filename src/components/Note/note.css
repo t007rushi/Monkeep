@@ -21,6 +21,11 @@
   width: 100%;
 }
 
+.note-descr > ol,
+.note-descr > ul {
+  margin-left: 1rem;
+}
+
 .note-descr img {
   width: 10rem;
   height: 10rem;
@@ -33,14 +38,14 @@
 }
 
 .my-masonry-grid {
-  display: -webkit-box; 
-  display: -ms-flexbox; 
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  margin-left: -30px; 
+  margin-left: -30px;
   width: -webkit-fill-available;
 }
 .my-masonry-grid_column {
-  padding-left: 30px; 
+  padding-left: 30px;
   background-clip: padding-box;
 }
 
