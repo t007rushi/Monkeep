@@ -10,7 +10,7 @@
 }
 
 .ql-snow .ql-stroke:hover {
-  stroke: var(--primary-color);
+  stroke: var(--foreground-color);
 }
 
 .ql-toolbar.ql-snow {
@@ -22,12 +22,23 @@
 }
 
 .ql-editor * {
-  color: white;
+  color: var(--foreground-color);
 }
 
 .ql-snow .ql-picker {
   color: var(--foreground-color);
 }
+
+.ql-editor.ql-blank:before{
+  color:var(--foreground-color);
+}
+
+
+.ql-snow .ql-picker-options{
+  background-color: var(--accent-one-color);
+  color:var(--foreground-color);
+}
+
 
 @media only screen and (min-width: 768px) {
   .edit {
