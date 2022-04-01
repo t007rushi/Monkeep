@@ -1,13 +1,59 @@
 @import url("https://unpkg.com/mockman-js@latest/dist/style.css");
 @import url("https://spectre-ui.netlify.app/documentation/styles.css");
 
-:root {
-  --hover-color: #e9e9e9;
-}
 body {
   font-family: sans-serif;
 }
 
 .cur-point {
   cursor: pointer;
+}
+
+.light-theme {
+  --background-color: #ffffff;
+  --foreground-color: #252525;
+  --hover-bg-color: #e9e9e9;
+
+  --accent-one-color: #ffffff;
+  --accent-two-color: #f1f3f4;
+  --accent-three-color: #f8f8f8;
+
+  /* Notes bg Colors */
+  --note-color-1: #f28b82;
+  --note-color-2: #fbbc04;
+  --note-color-3: #fff475;
+  --note-color-4: #ccff90;
+  --note-color-5: #a7ffeb;
+  --note-color-6: #cbf0f8;
+  --note-color-7: #aecbfa;
+  --note-color-8: #d7aefb;
+  --note-color-9: #fdcfe8;
+}
+
+.dark-theme {
+  --background-color: #181818;
+  --foreground-color: #ffffff;
+  --hover-bg-color: #3b3b3b;
+
+  --accent-one-color: #303030;
+  --accent-two-color: #111111;
+  --accent-three-color: #202020;
+
+  --note-color-1: #5c2b29;
+  --note-color-2: #614a19;
+  --note-color-3: #635d19;
+  --note-color-4: #345920;
+  --note-color-5: #16504b;
+  --note-color-6: #2d555e;
+  --note-color-7: #1e3a5f;
+  --note-color-8: #42275e;
+  --note-color-9: #5b2245;
+}
+
+.App {
+  height: 100vh;
+}
+
+body{
+  background-color: var(--background-color);
 }

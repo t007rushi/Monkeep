@@ -1,5 +1,5 @@
 .note {
-  border: 1px solid black;
+  border: 1px solid var(--foreground-color);
   padding: 7px;
   min-width: 12rem;
   min-height: 5rem;
@@ -7,6 +7,7 @@
   flex-direction: column;
   gap: 5px;
   border-radius: 5px;
+  color: var(--foreground-color);
 }
 
 .note-collection {
@@ -20,6 +21,11 @@
   width: 100%;
 }
 
+.note-descr > ol,
+.note-descr > ul {
+  margin-left: 1rem;
+}
+
 .note-descr img {
   width: 10rem;
   height: 10rem;
@@ -29,4 +35,28 @@
   justify-content: flex-end;
   cursor: pointer;
   gap: 10px;
+}
+
+.my-masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -30px;
+  width: -webkit-fill-available;
+}
+.my-masonry-grid_column {
+  padding-left: 30px;
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div {
+  background: var(--accent-one-color);
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 750px) {
+  .my-masonry-grid {
+    flex-direction: column;
+  }
 }

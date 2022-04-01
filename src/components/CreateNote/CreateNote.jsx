@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./create-note.css";
 import Editor from "../Editor/Editor";
 import { MdOutlineColorLens } from "react-icons/md";
+import { BsFillPinFill, BsPin } from "react-icons/bs";
 import { useNotes } from "../../context/notes-context";
 
 export const CreateNote = () => {
@@ -17,6 +18,7 @@ export const CreateNote = () => {
     title: "",
     description: "",
     label: "",
+    pin: false,
   });
 
   const { addNotes } = useNotes();
@@ -33,13 +35,24 @@ export const CreateNote = () => {
         setNotedata({ title: "", description: "", label: "" });
       }}
     >
-      <input
-        className="note-title"
-        value={notedata.title}
-        onClick={expandEditor}
-        placeholder={expand ? "Title" : "Take a Note..."}
-        onChange={(e) => setNotedata({ ...notedata, title: e.target.value })}
-      />
+      <div className="flex-row note-title-pin spc-btwn ">
+        <input
+          className="note-title-input"
+          value={notedata.title}
+          onClick={expandEditor}
+          placeholder={expand ? "Title" : "Take a Note..."}
+          onChange={(e) => setNotedata({ ...notedata, title: e.target.value })}
+        />
+        {expand && (
+          <button
+            className="note-pin"
+            type="button"
+            onClick={(e) => setNotedata({ ...notedata, pin: !notedata.pin })}
+          >
+            {notedata.pin ? <BsFillPinFill /> : <BsPin />}
+          </button>
+        )}
+      </div>
       {expand && (
         <div>
           <Editor handleInput={handleInput} />
@@ -52,16 +65,23 @@ export const CreateNote = () => {
                 setNotedata({ ...notedata, label: e.target.value })
               }
             />
-            <MdOutlineColorLens />
+
+            <MdOutlineColorLens class="color-palette" />
+            <div className="color-palette-container">
+
+            </div>
             <button type="submit" className="btn primary-btn add-btn">
               Add
             </button>
-            <button className="btn secondary-btn add-btn" onClick={closerEditor}>
+            <button
+              className="btn secondary-btn add-btn close-btn"
+              onClick={closerEditor}
+            >
               Close
             </button>
           </nav>
         </div>
-      ) }
+      )}
     </form>
   );
 };

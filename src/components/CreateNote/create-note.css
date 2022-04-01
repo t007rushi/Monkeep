@@ -2,7 +2,7 @@
   width: fit-content;
   margin-top: 6rem;
   margin-left: 5rem;
-  border: 1px solid var(--cta-color);
+  border: 1px solid var(--foreground-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,20 +26,45 @@
   border-radius: 5px;
   outline: none;
   border: none;
-  padding:5px;
+  padding: 5px;
+  background-color: var(--accent-one-color);
+  color: var(--foreground-color);
 }
 
-.note-title {
+.note-title-input {
   width: 17rem;
   border: none;
   outline: none;
   height: 2rem;
   margin-right: auto;
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  font-size: 1.5rem;
 }
 
 .add-btn {
   width: 5rem;
   height: 2.5rem;
+}
+
+.close-btn {
+  background-color: var(--accent-one-color);
+  color: var(--foreground-color);
+}
+
+.color-palette {
+  color: var(--foreground-color);
+  cursor: pointer;
+}
+.note-title-pin {
+  width: 100%;
+}
+.note-pin {
+  border: none;
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 650px) {

@@ -8,12 +8,17 @@
 
 .header-mid {
   width: 40rem;
+  background-color: var(--accent-two-color);
 }
 .search-bar {
   width: 40rem;
   border: none;
   font-size: 1rem;
   padding: 0.5rem;
+  background-color: var(--accent-two-color);
+  outline: none;
+  border: none;
+  color: var(--foreground-color);
 }
 .search-bar:focus {
   outline: none;
@@ -24,27 +29,48 @@
   position: fixed;
   top: 0;
   height: 3.8rem;
-  border-bottom: 1px solid var(--cta-color);
   padding: 1rem;
+  background-color: var(--accent-one-color);
+  z-index: 2;
 }
 .header-right {
   width: 10rem;
 }
 
-.ham-burger:focus {
-  background-color:var(--hover-color)  ;
-  color:var(--white-color);
+.header-righthm {
+  gap: 1rem;
 }
 
-.ham-burger{
-border:none;
-background-color:var(--white-color);
-border-radius:50%;
-padding:3px;
+.header-righthm button {
+  width: 5rem;
+  font-size: 1rem;
+  margin-right: 3rem;
+  background-color: var(--foreground-color);
+  color: var(--background-color)
+}
+
+.header-icon {
+  color: var(--foreground-color);
+}
+.ham-burger:focus {
+  background-color: var(--hover-bg-color);
+}
+
+.ham-burger {
+  border: none;
+  background-color: var(--accent-one-color);
+  border-radius: 50%;
+  padding: 5px;
 }
 
 @media only screen and (max-width: 1020px) {
   .header-mid {
+    display: none;
+  }
+  .header-righthm {
+    margin: auto;
+  }
+  .header-righthm button {
     display: none;
   }
 }
