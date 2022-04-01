@@ -31,6 +31,7 @@
   height: 3.8rem;
   padding: 1rem;
   background-color: var(--accent-one-color);
+  z-index: 2;
 }
 .header-right {
   width: 10rem;
@@ -44,6 +45,7 @@
   width: 5rem;
   font-size: 1rem;
   margin-right: 3rem;
+  background-color: var(--foreground-color);
 }
 
 .header-icon {
