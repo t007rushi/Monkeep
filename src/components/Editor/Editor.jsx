@@ -2,10 +2,11 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./editor.css";
 
-export default function Editor({ handleInput }) {
+export default function Editor({ handleInput, description }) {
   return (
     <ReactQuill
       theme="snow"
+      value={description}
       onChange={handleInput}
       className="edit"
       modules={modules}
