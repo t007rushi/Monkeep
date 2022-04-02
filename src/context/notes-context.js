@@ -1,17 +1,26 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useReducer } from "react";
 import { useAuth } from "./auth-context";
 import { useEffect } from "react";
-import {
-  getNotes,
-  addNotesService,
-    removeFromNotesService,
-} from "../services";
+import { getNotes, addNotesService, removeFromNotesService, updateNoteService } from "../services";
+import { noteDetailReducer } from "../reducer/noteDetailReducer";
 
 const notesContext = createContext();
 
 const NotesProvider = ({ children }) => {
-  const [note, setNote] = useState([]);
+  const [note, setNote] = useState("");
   const { user } = useAuth();
+
+  const initialState = {
+    title: "",
+    priority: "",
+    ispin: false,
+    color: "default-color",
+  };
+
+  const [notesData, noteDispatcher] = useReducer(
+    noteDetailReducer,
+    initialState
+  );
 
   //GET note Items
   useEffect(() => {
@@ -27,29 +36,56 @@ const NotesProvider = ({ children }) => {
     }
   }, [user]);
 
-
   //ADD TO NOTES
-  const addNotes = async (NoteContent) => {
-    const newnote = await addNotesService(NoteContent, user);
+  const addNotes = async (Note) => {
+
+    const newnote = await addNotesService(Note, user);
     if (newnote !== undefined) {
       setNote(newnote.notes);
     }
   };
 
-//   REMOVE From NOTES
-    const removeFromnote = async (id) => {
-      const rmvnote = await removeFromNotesService(id, user);
-      if (rmvnote !== undefined) {
-        setNote(rmvnote.notes);
-      }
-    };
+  //   REMOVE From NOTES
+  const removeFromnote = async (id) => {
+    const rmvnote = await removeFromNotesService(id, user);
+    if (rmvnote !== undefined) {
+      setNote(rmvnote.notes);
+    }
+  };
+
+  // update note
+  const updateNote = async (Note,id) => {
+    const updatedNote = await updateNoteService(user, Note,id);
+    if (updatedNote !== undefined) {
+      setNote(updatedNote.notes);
+    }
+  };
+
+  const togglePin = (noteP,id) => {
+    updateNote({ ...noteP, ispin: !noteP.ispin },id);
+  };
+
+  const Change_color = (noteP,id,new_color) => {
+    updateNote({ ...noteP, color: new_color },id);
+  };
+
+  // future ref code for trash feat
+  // const inTrash = (noteP,id) => {
+  //   updateNote({ ...noteP, inTrash: !noteP.inTrash },id);
+  // };
 
   return (
     <notesContext.Provider
       value={{
         note,
         addNotes,
-        removeFromnote
+        removeFromnote,
+        updateNote,
+        notesData,
+        noteDispatcher,
+        initialState,
+        togglePin,
+        Change_color,
       }}
     >
       {children}

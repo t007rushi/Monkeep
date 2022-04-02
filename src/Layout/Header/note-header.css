@@ -8,14 +8,15 @@
 
 .header-mid {
   width: 40rem;
-  background-color: var(--accent-two-color);
+  background-color: var(--accent-three-color);
+  border:none;
 }
 .search-bar {
   width: 40rem;
   border: none;
   font-size: 1rem;
   padding: 0.5rem;
-  background-color: var(--accent-two-color);
+  background-color: var(--accent-three-color);
   outline: none;
   border: none;
   color: var(--foreground-color);

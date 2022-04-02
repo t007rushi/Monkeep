@@ -8,7 +8,7 @@ export const Header = ({ toggle }) => {
   const { theme, toggleTheme } = useTheme();
   return (
     <header className="flex-row header-bar">
-      <div className="flex-row spc-btwn header-left">
+      <div className="flex-row header-left">
         <button className="ham-burger" onClick={toggle}>
           <AiOutlineMenu className="header-icon" />
         </button>
