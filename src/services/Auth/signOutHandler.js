@@ -1,5 +1,4 @@
 
-export const signOutHandler = (setUser) => {
+export const signOutHandlerService = () => {
     localStorage.removeItem("token");
-    setUser({ isUserLoggedIn: false });
   };
