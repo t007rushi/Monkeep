@@ -19,7 +19,7 @@ export const Note = ({ arr, heading }) => {
 
   return (
     <div className="note-collection">
-      {heading}
+      {arr.length !==0 && heading}
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
