@@ -1,11 +1,11 @@
 import axios from "axios";
 
 //ADD A NOTE
-export const addNotesService = async (NoteContent, user) => {
+export const addNotesService = async (Note, user) => {
   try {
     const { data } = await axios.post(
       "api/notes",
-      { note: { NoteContent } },
+      { note: { Note } },
       {
         headers: {
           authorization: user.tokenVal,
