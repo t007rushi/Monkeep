@@ -1,0 +1,25 @@
+.main-content {
+    display: flex;
+  }
+  
+  .note-content {
+    flex-grow: 1;
+    margin-left: 11rem;
+  }
+  
+  .note-content h4{
+  color:var(--foreground-color)
+  }
+  
+  .note-hide {
+    margin-left: 4.2rem;
+  }
+  
+  @media only screen and (max-width: 750px) {
+    .note-hide {
+      margin-left: 0;
+    }
+    .note-content {
+      margin-left: 2rem;
+    }
+  }
