@@ -2,7 +2,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./editor.css";
 
-export default function Editor({ handleInput, description }) {
+export  function Editor({ handleInput, description }) {
   return (
     <ReactQuill
       theme="snow"

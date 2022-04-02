@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./create-note.css";
-import Editor from "../Editor/Editor";
+import {Editor} from "../Editor/Editor";
 
 import { BsFillPinFill, BsPin } from "react-icons/bs";
 import { useNotes } from "../../context/notes-context";
