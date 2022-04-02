@@ -5,7 +5,10 @@
 .note-content {
   flex-grow: 1;
   margin-left: 11rem;
-  margin-top: 3.8rem;
+}
+
+.note-content h4{
+color:var(--foreground-color)
 }
 
 .note-hide {
