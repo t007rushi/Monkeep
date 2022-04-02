@@ -49,7 +49,6 @@ export const Note = ({ arr, heading }) => {
               />
               <div className="flex-row note-options-set">
                 <Colorpalette
-                  color={Note.color}
                   updateColor={(color) => Change_color(Note, _id, color)}
                 />
                 <RiInboxArchiveLine onClick={() => {}} />

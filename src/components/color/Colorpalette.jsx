@@ -14,7 +14,7 @@ const colors = [
   "color-8",
   "color-9",
 ];
-const Colorpalette = ({ color, updateColor }) => {
+const Colorpalette = ({ updateColor }) => {
   const [showColors, setShowColors] = useState(false);
   return (
     <div>
