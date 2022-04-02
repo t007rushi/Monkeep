@@ -1,0 +1,56 @@
+.color-wrapper {
+  width: 13rem;
+  height: 5rem;
+  background-color: var(--background-color);
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--foreground-color);
+  gap: 1rem;
+  padding: 10px;
+}
+
+.colors {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  padding: 5px;
+  border:1px solid var(--foreground-color);
+}
+
+.default-color{
+  background-color: var(--background-color);
+  border: 1px solid var(--foreground-color);
+}
+.color-1 {
+  background-color: var(--note-color-1);
+}
+
+.color-2 {
+  background-color: var(--note-color-2);
+}
+
+.color-3 {
+  background-color: var(--note-color-3);
+}
+.color-4 {
+  background-color: var(--note-color-4);
+}
+.color-5 {
+  background-color: var(--note-color-5);
+}
+
+.color-6 {
+  background-color: var(--note-color-6);
+}
+
+.color-7 {
+  background-color: var(--note-color-7);
+}
+
+.color-8 {
+  background-color: var(--note-color-8);
+}
+
+.color-9 {
+  background-color: var(--note-color-9);
+}
