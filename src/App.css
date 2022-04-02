@@ -17,8 +17,9 @@ body {
   --accent-one-color: #ffffff;
   --accent-two-color: #f1f3f4;
   --accent-three-color: #f8f8f8;
+  --accent-four-color: #4C4C4C;
 
-  /* Notes bg Colors */
+  /* Notes bg Colors  */
   --note-color-1: #f28b82;
   --note-color-2: #fbbc04;
   --note-color-3: #fff475;
@@ -31,14 +32,16 @@ body {
 }
 
 .dark-theme {
-  --background-color: #181818;
+  --background-color: #282828;
   --foreground-color: #ffffff;
   --hover-bg-color: #3b3b3b;
 
   --accent-one-color: #303030;
   --accent-two-color: #111111;
   --accent-three-color: #202020;
+  --accent-four-color: #9D9D9F;
 
+  /* Notes bg Colors  */
   --note-color-1: #5c2b29;
   --note-color-2: #614a19;
   --note-color-3: #635d19;
