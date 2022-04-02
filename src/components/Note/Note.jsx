@@ -66,7 +66,7 @@ export const Note = ({ arr, heading }) => {
                 )}
                 {pathname === "/archives" && (
                   <RiInboxUnarchiveLine     onClick={() => {
-                    restoreToArchive(Note, _id);
+                    restoreToArchive(_id);
                   }}/>
                   
                   )}
