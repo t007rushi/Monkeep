@@ -15,8 +15,9 @@ const NotesProvider = ({ children }) => {
     priority: "",
     ispin: false,
     color: "default-color",
+    inTrash:"false"
   };
-
+  
   const [notesData, noteDispatcher] = useReducer(
     noteDetailReducer,
     initialState
@@ -69,15 +70,16 @@ const NotesProvider = ({ children }) => {
     updateNote({ ...noteP, color: new_color },id);
   };
 
-  // future ref code for trash feat
-  // const inTrash = (noteP,id) => {
-  //   updateNote({ ...noteP, inTrash: !noteP.inTrash },id);
-  // };
+
+  const inTrash = (noteP,id) => {
+    updateNote({ ...noteP, inTrash: !noteP.inTrash },id);
+  };
 
   return (
     <notesContext.Provider
       value={{
         note,
+        setNote,
         addNotes,
         removeFromnote,
         updateNote,
@@ -86,6 +88,7 @@ const NotesProvider = ({ children }) => {
         initialState,
         togglePin,
         Change_color,
+        inTrash
       }}
     >
       {children}
