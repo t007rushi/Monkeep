@@ -7,7 +7,11 @@ export const ArchivesPage = () => {
   const { archive } = useArchive();
   return (
     <div className="archived">
-      <Note arr={archive} heading={<h4>ARCHIVED</h4>} />
+      {archive.length === 0 ? (
+        <h1>Your archived Notes Appear here</h1>
+      ) : (
+        <Note arr={archive} heading={<h4>ARCHIVED</h4>} />
+      )}
     </div>
   );
 };
