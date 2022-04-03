@@ -41,7 +41,8 @@ export const Note = ({ arr, heading }) => {
                     togglePin(Note, _id);
                   }}
                 >
-                  {Note.ispin ? <BsFillPinFill /> : <BsPin />}
+                  {pathname === "/notes" &&
+                    (Note.ispin ? <BsFillPinFill /> : <BsPin />)}
                 </button>
               </div>
 
@@ -66,7 +67,11 @@ export const Note = ({ arr, heading }) => {
                 )}
 
                 {pathname === "/notes" && (
-                  <FiTrash2 onClick={() => inTrash(Note, _id)} />
+                  <FiTrash2
+                    onClick={() => {
+                      inTrash(Note, _id);
+                    }}
+                  />
                 )}
                 {pathname === "/archives" && (
                   <RiInboxUnarchiveLine
