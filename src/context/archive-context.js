@@ -42,7 +42,6 @@ const ArchiveProvider = ({ children }) => {
   const restoreToArchive = async (_id) => {
     console.log(_id);
     const archivednote = await restoreFromArchivesService(_id, user);
-    console.log(archivednote);
     if (archivednote !== undefined) {
       setArchive(archivednote.archives);
       setNote(archivednote.notes);
@@ -52,7 +51,6 @@ const ArchiveProvider = ({ children }) => {
   //DELETE FROM ARCHIVES
   const deleteToArchive = async (_id) => {
     const archivednote = await deleteFromArchivesService(_id, user);
-    console.log(archivednote);
     if (archivednote !== undefined) {
       setArchive(archivednote.archives);
     }
@@ -60,7 +58,7 @@ const ArchiveProvider = ({ children }) => {
 
   return (
     <ArchiveContext.Provider
-      value={{ archive, addToArchive, restoreToArchive,deleteToArchive }}
+      value={{ archive, addToArchive, restoreToArchive, deleteToArchive }}
     >
       {children}
     </ArchiveContext.Provider>
