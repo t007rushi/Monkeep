@@ -8,6 +8,7 @@ import {
   LoginPage,
   NotesPage,
   SignupPage,
+  TrashPage,
 } from "../../pages";
 import ProtectedRoute from "../../Router/ProtectedRoute";
 import { Sidebar } from "../sidebar/Sidebar";
@@ -48,7 +49,7 @@ export const Main = () => {
           ></Route>
           <Route path="/archives" element={<ArchivesPage />}></Route>
           <Route path="/labels" element={<></>}></Route>
-          <Route path="/trash" element={<></>}></Route>
+          <Route path="/trash" element={<TrashPage/>}></Route>
           <Route path="/profile" element={<></>}></Route>
           <Route path="/*" element={<></>}></Route>
         </Routes>
