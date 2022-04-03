@@ -4,13 +4,12 @@ import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import { MdDarkMode, MdLogout, MdLightMode } from "react-icons/md";
 import { useTheme } from "../../context/theme-context";
 import { useHeader } from "../../context/header-context";
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const { toggle } = useHeader();
-  const navigate = useNavigate();
   const { user, signOutHandler } = useAuth();
   const { pathname } = useLocation();
   const forbiddenpaths = ["/", "/login", "/signup"];
@@ -22,9 +21,9 @@ export const Header = () => {
             <AiOutlineMenu className="header-icon" />
           </button>
         )}
-        <h1 className="flex-row web-logo" onClick={() => navigate("/")}>
+        <NavLink to="/" className="flex-row web-logo">
           <i>MON</i>KEEP
-        </h1>
+        </NavLink>
       </div>
       {user.isUserLoggedIn && (
         <div className="flex-row header-mid">
@@ -48,14 +47,14 @@ export const Header = () => {
         {!user.isUserLoggedIn ? (
           <div className="flex-row header-right-btn">
             {pathname !== "/login" && (
-              <button className="btn" onClick={() => navigate("/login")}>
+              <NavLink to="/login" className="btn auth-btn">
                 LOGIN
-              </button>
+              </NavLink>
             )}
             {pathname !== "/signup" && (
-              <button className="btn" onClick={() => navigate("/signup")}>
+              <NavLink to="/signup" className="btn auth-btn">
                 SIGNUP
-              </button>
+              </NavLink>
             )}
           </div>
         ) : (
