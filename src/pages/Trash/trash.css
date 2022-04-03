@@ -1,0 +1,7 @@
+.trash{
+    margin-top: 6rem;
+}
+.trash h1{
+    color:var(--foreground-color);
+    margin-left: 3rem;
+}

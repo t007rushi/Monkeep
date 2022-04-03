@@ -42,12 +42,14 @@
   gap: 1rem;
 }
 
-.header-righthm button {
+.auth-btn{
   width: 5rem;
   font-size: 1rem;
   margin-right: 3rem;
   background-color: var(--foreground-color);
-  color: var(--background-color)
+  color: var(--background-color);
+  text-decoration: none;
+  font-weight:bold;
 }
 
 .header-icon {
@@ -62,6 +64,11 @@
   background-color: var(--accent-one-color);
   border-radius: 50%;
   padding: 5px;
+}
+
+.web-logo{
+  cursor: pointer;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 1020px) {

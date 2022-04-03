@@ -1,7 +1,11 @@
 export { logInHandlerService } from "./Auth/logInHandler";
 export { signUpHandlerService } from "./Auth/signUpHandler";
-export { signOutHandler } from "./Auth/signOutHandler";
-export {getNotes} from "./notes-services/getNotes"
-export {addNotesService} from "./notes-services/addNotesService"
-export {removeFromNotesService} from "./notes-services/removeFromNotesService"
-export {updateNoteService} from "./notes-services/updateNoteService"
+export { signOutHandlerService } from "./Auth/signOutHandler";
+export { getNotes } from "./notes-services/getNotes";
+export { addNotesService } from "./notes-services/addNotesService";
+export { removeFromNotesService } from "./notes-services/removeFromNotesService";
+export { updateNoteService } from "./notes-services/updateNoteService";
+export { getArchivedNotes } from "./archive-services/getArchivedNotes";
+export { addToArchiveService } from "./archive-services/addToArchiveService";
+export { deleteFromArchivesService } from "./archive-services/deleteFromArchivesService";
+export { restoreFromArchivesService } from "./archive-services/restoreFromArchivesService";

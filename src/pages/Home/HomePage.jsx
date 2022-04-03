@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {  HomeHeader } from "../../Layout";
+import { useAuth } from "../../context/auth-context";
 import "./home.css";
 
 export const HomePage = () => {
+  const {user} = useAuth();
   return (
     <>
-      <HomeHeader />
       <div className="home-intro flex-row">
         <div className="flex-col center-it spc-btwn home-descr ">
           <div className="flex-col gap-btwn home-descr-data">
@@ -22,15 +22,17 @@ export const HomePage = () => {
             </p>
           </div>
           <div className="flex-col gap-btwn">
-            <Link to="/signup" className="undle">
+          {!user.isUserLoggedIn ?  <Link to="/signup" className="undle">
               <button className="btn primary-btn bold">JOIN NOW </button>
-            </Link>
-            <span className="home-descr-data">
+            </Link>:<Link to="/notes" className="undle">
+              <button className="btn primary-btn bold">GO TO NOTES </button>
+            </Link>}
+            {!user.isUserLoggedIn && <span className="home-descr-data">
               Already have an Account?
               <Link to="/login" className="sec-color undle">
                 Login
               </Link>
-            </span>
+            </span>}
           </div>
         </div>
         <img src="./assets/home.png" alt="home" className="home-img" />

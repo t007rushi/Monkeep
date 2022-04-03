@@ -2,10 +2,11 @@ import React from "react";
 import "./sidebar.css";
 import { useNavigate } from "react-router-dom";
 import sidebarData from "../../data/sidebarData";
+import { useHeader } from "../../context/header-context";
 
-export const Sidebar = ({ sidebar }) => {
+export const Sidebar = () => {
   const navigator = useNavigate();
-
+const {sidebar} = useHeader();
   return (
  
       <ul className="flex-row flex-col  gap-btwn sidebar active">
