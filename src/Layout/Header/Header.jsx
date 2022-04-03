@@ -13,7 +13,7 @@ export const Header = () => {
   const navigate = useNavigate();
   const { user, signOutHandler } = useAuth();
   const { pathname } = useLocation();
-  const forbiddenpaths = ["/", "/login", "/signup", "/*"];
+  const forbiddenpaths = ["/", "/login", "/signup"];
   return (
     <header className="flex-row header-bar">
       <div className="flex-row header-left">
@@ -45,12 +45,12 @@ export const Header = () => {
         )}
         {!user.isUserLoggedIn ? (
           <div className="flex-row header-right-btn">
-            <button className="btn" onClick={() => navigate("/login")}>
+           {pathname !== "/login" && <button className="btn" onClick={() => navigate("/login")}>
               LOGIN
-            </button>
-            <button className="btn" onClick={() => navigate("/signup")}>
+            </button>}
+            {pathname !== "/signup" && <button className="btn" onClick={() => navigate("/signup")}>
               SIGNUP
-            </button>
+            </button>}
           </div>
         ) : (
           <MdLogout className="header-icon" onClick={() => signOutHandler()} />
