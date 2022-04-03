@@ -4,7 +4,7 @@ import { useNotes } from "../../context/notes-context";
 import { FiTrash2 } from "react-icons/fi";
 import { RiInboxArchiveLine, RiInboxUnarchiveLine } from "react-icons/ri";
 import { BsFillPinFill, BsPin } from "react-icons/bs";
-import { MdRestoreFromTrash,MdDeleteForever } from "react-icons/md";
+import { MdRestoreFromTrash, MdDeleteForever } from "react-icons/md";
 import Masonry from "react-masonry-css";
 import Colorpalette from "../color/Colorpalette";
 import { useArchive } from "../../context/archive-context";
@@ -18,8 +18,8 @@ const breakpointColumnsObj = {
 };
 
 export const Note = ({ arr, heading }) => {
-  const { removeFromnote, togglePin, Change_color,inTrash } = useNotes();
-  const { addToArchive,restoreToArchive } = useArchive();
+  const { togglePin, Change_color, inTrash } = useNotes();
+  const { addToArchive, restoreToArchive, deleteToArchive } = useArchive();
   const { pathname } = useLocation();
   return (
     <div className="note-collection">
@@ -65,31 +65,26 @@ export const Note = ({ arr, heading }) => {
                   />
                 )}
                 {pathname === "/archives" && (
-                  <RiInboxUnarchiveLine     onClick={() => {
-                    restoreToArchive(_id);
-                  }}/>
-                  
-                  )}
-                {pathname === "/trash" && (
-                  <MdRestoreFromTrash
-                  onClick={() => {
-                   
-                  }}
+                  <RiInboxUnarchiveLine
+                    onClick={() => {
+                      restoreToArchive(_id);
+                    }}
                   />
-                  )}
-                  {pathname === "/archives" && (
-                  <MdDeleteForever onClick={() => 
-                  removeFromnote(_id)
-                  } />
-
-                  )}
-                {pathname === "/notes" && (
-                <FiTrash2 onClick={() => 
-                  inTrash(Note, _id)
-                } />
-                
                 )}
-                </div>
+                {pathname === "/trash" && (
+                  <MdRestoreFromTrash onClick={() => {}} />
+                )}
+                {pathname === "/archives" && (
+                  <MdDeleteForever
+                    onClick={() =>
+                      deleteToArchive(_id)
+                    }
+                  />
+                )}
+                {pathname === "/notes" && (
+                  <FiTrash2 onClick={() => inTrash(Note, _id)} />
+                )}
+              </div>
             </div>
           );
         })}

@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import {
   addToArchiveService,
+  deleteFromArchivesService,
   getArchivedNotes,
   restoreFromArchivesService,
 } from "../services";
@@ -48,9 +49,18 @@ const ArchiveProvider = ({ children }) => {
     }
   };
 
+  //DELETE FROM ARCHIVES
+  const deleteToArchive = async (_id) => {
+    const archivednote = await deleteFromArchivesService(_id, user);
+    console.log(archivednote);
+    if (archivednote !== undefined) {
+      setArchive(archivednote.archives);
+    }
+  };
+
   return (
     <ArchiveContext.Provider
-      value={{ archive, addToArchive, restoreToArchive }}
+      value={{ archive, addToArchive, restoreToArchive,deleteToArchive }}
     >
       {children}
     </ArchiveContext.Provider>
