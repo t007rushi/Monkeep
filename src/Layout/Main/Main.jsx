@@ -49,7 +49,7 @@ export const Main = () => {
           ></Route>
           <Route path="/archives" element={<ArchivesPage />}></Route>
           <Route path="/labels" element={<></>}></Route>
-          <Route path="/trash" element={<TrashPage/>}></Route>
+          <Route path="/trash" element={<TrashPage />}></Route>
           <Route path="/profile" element={<></>}></Route>
           <Route path="/*" element={<></>}></Route>
         </Routes>
