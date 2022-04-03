@@ -1,7 +1,12 @@
 import { createContext, useContext, useState, useReducer } from "react";
 import { useAuth } from "./auth-context";
 import { useEffect } from "react";
-import { getNotes, addNotesService, removeFromNotesService, updateNoteService } from "../services";
+import {
+  getNotes,
+  addNotesService,
+  removeFromNotesService,
+  updateNoteService,
+} from "../services";
 import { noteDetailReducer } from "../reducer/noteDetailReducer";
 
 const notesContext = createContext();
@@ -15,9 +20,9 @@ const NotesProvider = ({ children }) => {
     priority: "",
     ispin: false,
     color: "default-color",
-    inTrash:"false"
+    inTrash: "false",
   };
-  
+
   const [notesData, noteDispatcher] = useReducer(
     noteDetailReducer,
     initialState
@@ -39,7 +44,6 @@ const NotesProvider = ({ children }) => {
 
   //ADD TO NOTES
   const addNotes = async (Note) => {
-
     const newnote = await addNotesService(Note, user);
     if (newnote !== undefined) {
       setNote(newnote.notes);
@@ -55,24 +59,25 @@ const NotesProvider = ({ children }) => {
   };
 
   // update note
-  const updateNote = async (Note,id) => {
-    const updatedNote = await updateNoteService(user, Note,id);
+  const updateNote = async (Note, id) => {
+    const updatedNote = await updateNoteService(user, Note, id);
     if (updatedNote !== undefined) {
       setNote(updatedNote.notes);
     }
   };
 
-  const togglePin = (noteP,id) => {
-    updateNote({ ...noteP, ispin: !noteP.ispin },id);
+  const togglePin = (noteP, id) => {
+    updateNote({ ...noteP, ispin: !noteP.ispin }, id);
   };
 
-  const Change_color = (noteP,id,new_color) => {
-    updateNote({ ...noteP, color: new_color },id);
+  const Change_color = (noteP, id, new_color) => {
+    updateNote({ ...noteP, color: new_color }, id);
   };
 
-
-  const inTrash = (noteP,id) => {
-    updateNote({ ...noteP, inTrash: !noteP.inTrash },id);
+  const inTrash = (noteP, id) => {
+    if (noteP.ispin) {
+      updateNote({ ...noteP, inTrash: !noteP.inTrash, ispin: false }, id);
+    } else updateNote({ ...noteP, inTrash: !noteP.inTrash }, id);
   };
 
   return (
@@ -88,7 +93,7 @@ const NotesProvider = ({ children }) => {
         initialState,
         togglePin,
         Change_color,
-        inTrash
+        inTrash,
       }}
     >
       {children}
