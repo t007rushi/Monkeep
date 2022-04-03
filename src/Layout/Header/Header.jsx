@@ -26,10 +26,12 @@ export const Header = () => {
           <i>MON</i>KEEP
         </h1>
       </div>
-      <div className="flex-row header-mid">
-        <AiOutlineSearch className="header-icon" />
-        <input type="text" placeholder="Search" className="search-bar" />
-      </div>
+      {user.isUserLoggedIn && (
+        <div className="flex-row header-mid">
+          <AiOutlineSearch className="header-icon" />
+          <input type="text" placeholder="Search" className="search-bar" />
+        </div>
+      )}
       <div
         className={
           !user.isUserLoggedIn
@@ -45,12 +47,16 @@ export const Header = () => {
         )}
         {!user.isUserLoggedIn ? (
           <div className="flex-row header-right-btn">
-           {pathname !== "/login" && <button className="btn" onClick={() => navigate("/login")}>
-              LOGIN
-            </button>}
-            {pathname !== "/signup" && <button className="btn" onClick={() => navigate("/signup")}>
-              SIGNUP
-            </button>}
+            {pathname !== "/login" && (
+              <button className="btn" onClick={() => navigate("/login")}>
+                LOGIN
+              </button>
+            )}
+            {pathname !== "/signup" && (
+              <button className="btn" onClick={() => navigate("/signup")}>
+                SIGNUP
+              </button>
+            )}
           </div>
         ) : (
           <MdLogout className="header-icon" onClick={() => signOutHandler()} />
