@@ -64,6 +64,10 @@
   padding: 5px;
 }
 
+.web-logo{
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 1020px) {
   .header-mid {
     display: none;

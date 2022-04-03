@@ -35,6 +35,10 @@
   gap: 10px;
 }
 
+.note-options-set * {
+cursor: pointer;
+}
+
 .my-masonry-grid {
   display: -webkit-box;
   display: -ms-flexbox;
