@@ -18,7 +18,7 @@ const breakpointColumnsObj = {
 };
 
 export const Note = ({ arr, heading }) => {
-  const { togglePin, Change_color, inTrash } = useNotes();
+  const { togglePin, Change_color, inTrash, removeFromnote } = useNotes();
   const { addToArchive, restoreToArchive, deleteToArchive } = useArchive();
   const { pathname } = useLocation();
   return (
@@ -64,6 +64,10 @@ export const Note = ({ arr, heading }) => {
                     }}
                   />
                 )}
+
+                {pathname === "/notes" && (
+                  <FiTrash2 onClick={() => inTrash(Note, _id)} />
+                )}
                 {pathname === "/archives" && (
                   <RiInboxUnarchiveLine
                     onClick={() => {
@@ -71,18 +75,18 @@ export const Note = ({ arr, heading }) => {
                     }}
                   />
                 )}
-                {pathname === "/trash" && (
-                  <MdRestoreFromTrash onClick={() => {}} />
-                )}
                 {pathname === "/archives" && (
-                  <MdDeleteForever
-                    onClick={() =>
-                      deleteToArchive(_id)
-                    }
+                  <MdDeleteForever onClick={() => deleteToArchive(_id)} />
+                )}
+                {pathname === "/trash" && (
+                  <MdRestoreFromTrash
+                    onClick={() => {
+                      inTrash(Note, _id);
+                    }}
                   />
                 )}
-                {pathname === "/notes" && (
-                  <FiTrash2 onClick={() => inTrash(Note, _id)} />
+                {pathname === "/trash" && (
+                  <MdDeleteForever onClick={() => removeFromnote(_id)} />
                 )}
               </div>
             </div>
