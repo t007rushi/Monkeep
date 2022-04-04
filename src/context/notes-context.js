@@ -12,7 +12,7 @@ import { noteDetailReducer } from "../reducer/noteDetailReducer";
 const notesContext = createContext();
 
 const NotesProvider = ({ children }) => {
-  const [note, setNote] = useState("");
+  const [note, setNote] = useState([]);
   const { user } = useAuth();
 
   const initialState = {
@@ -21,7 +21,9 @@ const NotesProvider = ({ children }) => {
     ispin: false,
     color: "default-color",
     inTrash: "false",
+    labels: [],
   };
+  const uniqueLabels = note.reduce((a, b) => [...a, ...b.Note.labels], []);
 
   const [notesData, noteDispatcher] = useReducer(
     noteDetailReducer,
@@ -80,6 +82,10 @@ const NotesProvider = ({ children }) => {
     } else updateNote({ ...noteP, inTrash: !noteP.inTrash }, id);
   };
 
+  const tagUpdate = (noteP, id, tag) => {
+    updateNote({ ...noteP, labels: [...noteP.labels, tag] }, id);
+  };
+
   return (
     <notesContext.Provider
       value={{
@@ -94,6 +100,8 @@ const NotesProvider = ({ children }) => {
         togglePin,
         Change_color,
         inTrash,
+        uniqueLabels,
+        tagUpdate,
       }}
     >
       {children}
