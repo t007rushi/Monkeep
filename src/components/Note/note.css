@@ -39,6 +39,13 @@
 cursor: pointer;
 }
 
+.label-wrap{
+  gap:5px;
+  border-radius: 5px;
+  border: 1px solid var(--foreground-color);
+  padding: 5px;
+}
+
 .my-masonry-grid {
   display: -webkit-box;
   display: -ms-flexbox;
