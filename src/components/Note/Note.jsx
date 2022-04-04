@@ -9,6 +9,7 @@ import Masonry from "react-masonry-css";
 import Colorpalette from "../color/Colorpalette";
 import { useArchive } from "../../context/archive-context";
 import { useLocation } from "react-router-dom";
+import { Label } from "../Label/Label";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -18,9 +19,12 @@ const breakpointColumnsObj = {
 };
 
 export const Note = ({ arr, heading }) => {
-  const { togglePin, Change_color, inTrash, removeFromnote } = useNotes();
+  
+  const { togglePin, Change_color, inTrash, removeFromnote, tagUpdate } =
+    useNotes();
   const { addToArchive, restoreToArchive, deleteToArchive } = useArchive();
   const { pathname } = useLocation();
+  
   return (
     <div className="note-collection">
       {arr.length !== 0 && heading}
@@ -52,7 +56,22 @@ export const Note = ({ arr, heading }) => {
                   __html: Note.description,
                 }}
               />
+              <div className="flex-row gap-btwn">
+                {Note.labels.map((label) => {
+                  return (
+                    <div key={label} className="flex-row label-wrap">
+                      <p>{label}</p>x
+                    </div>
+                  );
+                })}
+              </div>
               <div className="flex-row note-options-set">
+                <Label
+                  tags={Note.labels}
+                  addTag={(tag) => {tagUpdate(Note, _id, tag);
+                  }}
+                />
+
                 {pathname === "/notes" && (
                   <Colorpalette
                     updateColor={(color) => Change_color(Note, _id, color)}
