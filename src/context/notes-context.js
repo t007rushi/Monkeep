@@ -12,7 +12,7 @@ import { noteDetailReducer } from "../reducer/noteDetailReducer";
 const notesContext = createContext();
 
 const NotesProvider = ({ children }) => {
-  const [note, setNote] = useState("");
+  const [note, setNote] = useState([]);
   const { user } = useAuth();
 
   const initialState = {
@@ -21,11 +21,13 @@ const NotesProvider = ({ children }) => {
     ispin: false,
     color: "default-color",
     inTrash: "false",
+    labels: [],
   };
+  const [uniqueLabels,setuniqueLabels] = useState([])
 
   const [notesData, noteDispatcher] = useReducer(
     noteDetailReducer,
-    initialState
+   initialState
   );
 
   //GET note Items
@@ -35,6 +37,7 @@ const NotesProvider = ({ children }) => {
         const data = await getNotes(user);
         if (data !== undefined) {
           setNote(data.notes);
+          setuniqueLabels(data.notes.reduce((a, b) => [...a, ...b.Note.labels], []))
         }
       })();
     } else {
@@ -80,6 +83,14 @@ const NotesProvider = ({ children }) => {
     } else updateNote({ ...noteP, inTrash: !noteP.inTrash }, id);
   };
 
+  const tagUpdate = (noteP, id, tag) => {
+    if(noteP.labels.find(label => label ===tag)){
+      const rmvlabel = noteP.labels.filter(label => label !==tag);
+      updateNote({ ...noteP, labels: rmvlabel }, id);
+    }else{updateNote({ ...noteP, labels: [...noteP.labels, tag] }, id);}
+    
+  };
+
   return (
     <notesContext.Provider
       value={{
@@ -94,6 +105,9 @@ const NotesProvider = ({ children }) => {
         togglePin,
         Change_color,
         inTrash,
+        uniqueLabels,
+        setuniqueLabels,
+        tagUpdate,
       }}
     >
       {children}

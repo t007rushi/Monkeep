@@ -33,10 +33,22 @@
 .note-options-set {
   justify-content: flex-end;
   gap: 10px;
+  align-items: baseline;
 }
 
 .note-options-set * {
-cursor: pointer;
+  cursor: pointer;
+}
+
+.label-wrap {
+  gap: 5px;
+  border-radius: 10px;
+  border: 1px solid var(--foreground-color);
+  padding: 4px;
+}
+
+.label-delete {
+  cursor: pointer;
 }
 
 .my-masonry-grid {

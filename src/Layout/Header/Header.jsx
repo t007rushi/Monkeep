@@ -28,7 +28,11 @@ export const Header = () => {
       {user.isUserLoggedIn && (
         <div className="flex-row header-mid">
           <AiOutlineSearch className="header-icon" />
-          <input type="text" placeholder="Search" className="search-bar" />
+          <NavLink to="/search"> <input
+            type="text"
+            placeholder="Search"
+            className="search-bar"
+          /></NavLink>
         </div>
       )}
       <div

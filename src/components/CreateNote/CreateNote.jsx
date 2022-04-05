@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import "./create-note.css";
-import {Editor} from "../Editor/Editor";
-
+import { Editor } from "../Editor/Editor";
 import { BsFillPinFill, BsPin } from "react-icons/bs";
 import { useNotes } from "../../context/notes-context";
 import Colorpalette from "../color/Colorpalette";
-import { SET_TITLE, PIN, CLEAR_INPUTS, SET_COLOR } from "../../constants/notesConstant";
+import {
+  SET_TITLE,
+  PIN,
+  CLEAR_INPUTS,
+  SET_COLOR,
+  ADD_LABEL,
+} from "../../constants/notesConstant";
+import { Label } from "../Label/Label";
 
 export const CreateNote = () => {
   const [expand, setExpand] = useState(false);
@@ -22,6 +28,7 @@ export const CreateNote = () => {
   const handleInput = (e) => {
     setDescription(e);
   };
+
   return (
     <form
       className={`create-note ${notesData.color}`}
@@ -56,16 +63,37 @@ export const CreateNote = () => {
       {expand && (
         <div>
           <Editor handleInput={handleInput} description={description} />
+          <div className="flex-row gap-btwn">
+            {notesData.labels.map((label) => {
+              return (
+                <div key={label} className="flex-row label-wrap">
+                  <p>{label}</p>
+                  <span
+                    className="label-delete"
+                    onClick={() =>
+                      noteDispatcher({ type: ADD_LABEL, payload: label })
+                    }
+                  >
+                    x
+                  </span>
+                </div>
+              );
+            })}
+          </div>
           <nav className="flex-row note-options">
-            <input
-              type="text"
-              placeholder="enter label"
-              className="label-txt"
-              onChange={(e) => {}}
+            {/* LABEL */}
+            <Label
+              labels={notesData.labels}
+              addLabels={(label) => {
+                noteDispatcher({ type: ADD_LABEL, payload: label });
+              }}
             />
-            <Colorpalette updateColor={
-              color => noteDispatcher({ type: SET_COLOR, payload: color })
-            } />
+
+            <Colorpalette
+              updateColor={(color) =>
+                noteDispatcher({ type: SET_COLOR, payload: color })
+              }
+            />
             <button type="submit" className="btn add-btn">
               Add
             </button>
