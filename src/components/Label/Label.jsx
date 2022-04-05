@@ -3,19 +3,18 @@ import { MdOutlineLabel } from "react-icons/md";
 import { useNotes } from "../../context/notes-context";
 import "./label.css";
 
-export const Label = ({ tags, addTag }) => {
-  const [labelop, showLabelop] = useState(false);
+export const Label = ({ labels, addLabels }) => {
+  const [labelField, showLabelField] = useState(false);
   const [labelTxt, setNewLabelTxt] = useState("");
-  const { uniqueLabels } = useNotes();
+  const { uniqueLabels, setuniqueLabels } = useNotes();
 
-  console.log(tags);
   return (
     <div className="labels-container" onClick={(e) => e.preventDefault()}>
       <MdOutlineLabel
         className="label-icon"
-        onClick={() => showLabelop((prev) => !prev)}
+        onClick={() => showLabelField((prev) => !prev)}
       />
-      {labelop && (
+      {labelField && (
         <div className="labels-wrapper">
           <div className="flex-row spc-btwn gap-btwn">
             <input
@@ -30,8 +29,11 @@ export const Label = ({ tags, addTag }) => {
             <button
               className="label-txt-add"
               onClick={() => {
-                if (!tags.find((tag) => tag === labelTxt) && labelTxt !== "") {
-                  addTag(labelTxt);
+                if (
+                  !uniqueLabels.find((label) => label === labelTxt) &&
+                  labelTxt !== ""
+                ) {
+                  setuniqueLabels([...uniqueLabels, labelTxt]);
                 }
                 setNewLabelTxt("");
               }}
@@ -52,8 +54,10 @@ export const Label = ({ tags, addTag }) => {
                     type="checkbox"
                     name="labels"
                     id={label}
-                    checked={tags.includes(label)}
-                    onChange={() => {}}
+                    checked={labels.includes(label)}
+                    onChange={() => {
+                      addLabels(label);
+                    }}
                   />
                   {label}
                 </label>
