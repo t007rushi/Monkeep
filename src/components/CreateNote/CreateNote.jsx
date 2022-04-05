@@ -9,7 +9,7 @@ import {
   PIN,
   CLEAR_INPUTS,
   SET_COLOR,
-  SET_LABEL,
+  ADD_LABEL,
 } from "../../constants/notesConstant";
 import { Label } from "../Label/Label";
 
@@ -23,12 +23,12 @@ export const CreateNote = () => {
   const expandEditor = () => {
     setExpand(true);
   };
-  const { notesData, noteDispatcher, addNotes, initialState } =
-    useNotes();
+  const { notesData, noteDispatcher, addNotes, initialState } = useNotes();
 
   const handleInput = (e) => {
     setDescription(e);
   };
+
   return (
     <form
       className={`create-note ${notesData.color}`}
@@ -63,21 +63,29 @@ export const CreateNote = () => {
       {expand && (
         <div>
           <Editor handleInput={handleInput} description={description} />
+          <div className="flex-row gap-btwn">
+            {notesData.labels.map((label) => {
+              return (
+                <div key={label} className="flex-row label-wrap">
+                  <p>{label}</p>
+                  <span
+                    className="label-delete"
+                    onClick={() =>
+                      noteDispatcher({ type: ADD_LABEL, payload: label })
+                    }
+                  >
+                    x
+                  </span>
+                </div>
+              );
+            })}
+          </div>
           <nav className="flex-row note-options">
             {/* LABEL */}
-            <div className="flex-row gap-btwn">
-                {notesData.labels.map((label) => {
-                  return (
-                    <div key={label} className="flex-row label-wrap">
-                      <p>{label}</p>x
-                    </div>
-                  );
-                })}
-              </div>
             <Label
-              tags={notesData.labels}
-              addTag={(tag) => {
-                noteDispatcher({ type: SET_LABEL, payload: tag });
+              labels={notesData.labels}
+              addLabels={(label) => {
+                noteDispatcher({ type: ADD_LABEL, payload: label });
               }}
             />
 
