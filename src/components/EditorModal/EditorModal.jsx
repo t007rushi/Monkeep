@@ -81,7 +81,7 @@ export const EditorModal = ({ id, currentNote, showModal }) => {
               addLabels={(label) => {
                 setUpdateNoted({
                   ...updateNoted,
-                  labels: [...updateNoted.labels, label],
+                  labels:updateNoted.labels.includes(label)?updateNoted.labels:[...updateNoted.labels, label],
                 });
               }}
             />
