@@ -3,7 +3,7 @@ import {
   SET_COLOR,
   PIN,
   CLEAR_INPUTS,
-  SET_LABEL,
+  ADD_LABEL,
 } from "../constants/notesConstant";
 
 export const noteDetailReducer = (state, action) => {
@@ -16,12 +16,15 @@ export const noteDetailReducer = (state, action) => {
       return { ...state, ispin: !state.ispin };
     case CLEAR_INPUTS:
       return action.payload;
-    case SET_LABEL:
+    case ADD_LABEL:
+      const updatedLabel = state.labels.find(
+        (label) => label === action.payload
+      )
+        ? state.labels.filter((label) => label !== action.payload)
+        : [...state.labels, action.payload];
       return {
         ...state,
-        labels: state.labels.find((label) => label === action.payload)
-          ? state.label
-          : [...state.labels, action.payload],
+        labels: updatedLabel,
       };
     default:
       return state;
