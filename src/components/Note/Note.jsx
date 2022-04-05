@@ -8,7 +8,7 @@ import { MdRestoreFromTrash, MdDeleteForever } from "react-icons/md";
 import Masonry from "react-masonry-css";
 import Colorpalette from "../color/Colorpalette";
 import { useArchive } from "../../context/archive-context";
-import { useLocation } from "react-router-dom";
+import { matchPath, useLocation } from "react-router-dom";
 import { Label } from "../Label/Label";
 
 const breakpointColumnsObj = {
@@ -19,12 +19,11 @@ const breakpointColumnsObj = {
 };
 
 export const Note = ({ arr, heading }) => {
-  
   const { togglePin, Change_color, inTrash, removeFromnote, tagUpdate } =
     useNotes();
   const { addToArchive, restoreToArchive, deleteToArchive } = useArchive();
   const { pathname } = useLocation();
-  
+
   return (
     <div className="note-collection">
       {arr.length !== 0 && heading}
@@ -45,7 +44,7 @@ export const Note = ({ arr, heading }) => {
                     togglePin(Note, _id);
                   }}
                 >
-                  {pathname === "/notes" &&
+                  {(pathname === "/notes" || matchPath("/labels/*", pathname)) &&
                     (Note.ispin ? <BsFillPinFill /> : <BsPin />)}
                 </button>
               </div>
@@ -60,24 +59,33 @@ export const Note = ({ arr, heading }) => {
                 {Note.labels.map((label) => {
                   return (
                     <div key={label} className="flex-row label-wrap">
-                      <p>{label}</p>x
+                      <p>{label}</p>
+                      <span
+                        className="label-delete"
+                        onClick={() => tagUpdate(Note, _id, label)}
+                      >
+                        x
+                      </span>
                     </div>
                   );
                 })}
               </div>
               <div className="flex-row note-options-set">
-                <Label
-                  tags={Note.labels}
-                  addTag={(tag) => {tagUpdate(Note, _id, tag);
-                  }}
-                />
+                {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
+                  <Label
+                    labels={Note.labels}
+                    addLabels={(tag) => {
+                      tagUpdate(Note, _id, tag);
+                    }}
+                  />
+                )}
 
-                {pathname === "/notes" && (
+                {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
                   <Colorpalette
                     updateColor={(color) => Change_color(Note, _id, color)}
                   />
                 )}
-                {pathname === "/notes" && (
+                {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
                   <RiInboxArchiveLine
                     onClick={() => {
                       addToArchive(Note, _id);
@@ -85,7 +93,7 @@ export const Note = ({ arr, heading }) => {
                   />
                 )}
 
-                {pathname === "/notes" && (
+                {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
                   <FiTrash2
                     onClick={() => {
                       inTrash(Note, _id);
