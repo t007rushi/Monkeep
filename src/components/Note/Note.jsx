@@ -1,15 +1,7 @@
 import React from "react";
 import "./note.css";
-import { useNotes } from "../../context/notes-context";
-import { FiTrash2 } from "react-icons/fi";
-import { RiInboxArchiveLine, RiInboxUnarchiveLine } from "react-icons/ri";
-import { BsFillPinFill, BsPin } from "react-icons/bs";
-import { MdRestoreFromTrash, MdDeleteForever } from "react-icons/md";
 import Masonry from "react-masonry-css";
-import Colorpalette from "../color/Colorpalette";
-import { useArchive } from "../../context/archive-context";
-import { matchPath, useLocation } from "react-router-dom";
-import { Label } from "../Label/Label";
+import { NoteCard } from "../NoteCard/NoteCard";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -19,11 +11,7 @@ const breakpointColumnsObj = {
 };
 
 export const Note = ({ arr, heading }) => {
-  const { togglePin, Change_color, inTrash, removeFromnote, tagUpdate } =
-    useNotes();
-  const { addToArchive, restoreToArchive, deleteToArchive } = useArchive();
-  const { pathname } = useLocation();
-
+  
   return (
     <div className="note-collection">
       {arr.length !== 0 && heading}
@@ -32,98 +20,9 @@ export const Note = ({ arr, heading }) => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {arr.map(({ _id, Note }) => {
-          return (
-            <div className={`note ${Note.color}`} key={_id}>
-              <div className="flex-row spc-btwn">
-                <div>{Note.title}</div>
-                <button
-                  className="note-pin"
-                  type="button"
-                  onClick={() => {
-                    togglePin(Note, _id);
-                  }}
-                >
-                  {(pathname === "/notes" || matchPath("/labels/*", pathname)) &&
-                    (Note.ispin ? <BsFillPinFill /> : <BsPin />)}
-                </button>
-              </div>
-
-              <div
-                className="note-descr"
-                dangerouslySetInnerHTML={{
-                  __html: Note.description,
-                }}
-              />
-              <div className="flex-row gap-btwn">
-                {Note.labels.map((label) => {
-                  return (
-                    <div key={label} className="flex-row label-wrap">
-                      <p>{label}</p>
-                      <span
-                        className="label-delete"
-                        onClick={() => tagUpdate(Note, _id, label)}
-                      >
-                        x
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="flex-row note-options-set">
-                {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
-                  <Label
-                    labels={Note.labels}
-                    addLabels={(tag) => {
-                      tagUpdate(Note, _id, tag);
-                    }}
-                  />
-                )}
-
-                {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
-                  <Colorpalette
-                    updateColor={(color) => Change_color(Note, _id, color)}
-                  />
-                )}
-                {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
-                  <RiInboxArchiveLine
-                    onClick={() => {
-                      addToArchive(Note, _id);
-                    }}
-                  />
-                )}
-
-                {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
-                  <FiTrash2
-                    onClick={() => {
-                      inTrash(Note, _id);
-                    }}
-                  />
-                )}
-                {pathname === "/archives" && (
-                  <RiInboxUnarchiveLine
-                    onClick={() => {
-                      restoreToArchive(_id);
-                    }}
-                  />
-                )}
-                {pathname === "/archives" && (
-                  <MdDeleteForever onClick={() => deleteToArchive(_id)} />
-                )}
-                {pathname === "/trash" && (
-                  <MdRestoreFromTrash
-                    onClick={() => {
-                      inTrash(Note, _id);
-                    }}
-                  />
-                )}
-                {pathname === "/trash" && (
-                  <MdDeleteForever onClick={() => removeFromnote(_id)} />
-                )}
-              </div>
-            </div>
-          );
-        })}
+        {arr.map(({ _id, Note }) => 
+              <NoteCard key ={_id} Note={Note} id={_id} />
+              )}
       </Masonry>
     </div>
   );
