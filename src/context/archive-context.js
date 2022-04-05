@@ -39,7 +39,6 @@ const ArchiveProvider = ({ children }) => {
 
   //RESTORE NOTE
   const restoreToArchive = async (_id) => {
-    console.log(_id);
     const archivednote = await restoreFromArchivesService(_id, user);
     if (archivednote !== undefined) {
       setArchive(archivednote.archives);
