@@ -12,6 +12,7 @@ export const EditorModal = ({ id, currentNote, showModal }) => {
   const { updateNote } = useNotes();
   const [updateNoted, setUpdateNoted] = useState(currentNote);
 
+  
   const handleInput = (e) => {
     setUpdateNoted({ ...updateNoted, description: e });
   };
