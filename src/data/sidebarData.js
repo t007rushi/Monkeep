@@ -1,19 +1,8 @@
-import { MdOutlineLabel, MdOutlineNote } from "react-icons/md";
 import { FiTrash2 } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { RiInboxArchiveLine } from "react-icons/ri";
 
 const sidebarData = [
-  {
-    title: "Notes",
-    Icon: MdOutlineNote,
-    navigate: "/notes",
-  },
-  {
-    title: "Labels",
-    Icon: MdOutlineLabel,
-    navigate: "/labels",
-  },
   {
     title: "Archives",
     Icon: RiInboxArchiveLine,
