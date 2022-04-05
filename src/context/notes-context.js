@@ -23,11 +23,11 @@ const NotesProvider = ({ children }) => {
     inTrash: "false",
     labels: [],
   };
-  const uniqueLabels = note.reduce((a, b) => [...a, ...b.Note.labels], []);
+  const [uniqueLabels,setuniqueLabels] = useState([])
 
   const [notesData, noteDispatcher] = useReducer(
     noteDetailReducer,
-    initialState
+   initialState
   );
 
   //GET note Items
@@ -37,6 +37,7 @@ const NotesProvider = ({ children }) => {
         const data = await getNotes(user);
         if (data !== undefined) {
           setNote(data.notes);
+          setuniqueLabels(data.notes.reduce((a, b) => [...a, ...b.Note.labels], []))
         }
       })();
     } else {
@@ -83,7 +84,11 @@ const NotesProvider = ({ children }) => {
   };
 
   const tagUpdate = (noteP, id, tag) => {
-    updateNote({ ...noteP, labels: [...noteP.labels, tag] }, id);
+    if(noteP.labels.find(label => label ===tag)){
+      const rmvlabel = noteP.labels.filter(label => label !==tag);
+      updateNote({ ...noteP, labels: rmvlabel }, id);
+    }else{updateNote({ ...noteP, labels: [...noteP.labels, tag] }, id);}
+    
   };
 
   return (
@@ -101,6 +106,7 @@ const NotesProvider = ({ children }) => {
         Change_color,
         inTrash,
         uniqueLabels,
+        setuniqueLabels,
         tagUpdate,
       }}
     >
