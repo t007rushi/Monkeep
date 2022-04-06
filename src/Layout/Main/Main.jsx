@@ -8,6 +8,7 @@ import {
   LabelsPage,
   LoginPage,
   NotesPage,
+  Search,
   SignupPage,
   TrashPage,
 } from "../../pages";
@@ -52,7 +53,7 @@ export const Main = () => {
 
           <Route path="/labels/:label" element={<LabelsPage />}></Route>
           <Route path="/trash" element={<TrashPage />}></Route>
-          <Route path="/search" element={<></>}></Route>
+          <Route path="/search" element={<Search/>}></Route>
           <Route path="/profile" element={<></>}></Route>
           <Route path="/*" element={<></>}></Route>
         </Routes>

@@ -1,7 +1,8 @@
 import React from "react";
 import "./note-header.css";
 import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
-import { MdDarkMode, MdLogout, MdLightMode } from "react-icons/md";
+import { MdDarkMode, MdLogout, MdLightMode} from "react-icons/md";
+import {IoMdOptions} from "react-icons/io";
 import { useTheme } from "../../context/theme-context";
 import { useHeader } from "../../context/header-context";
 import { NavLink, useLocation } from "react-router-dom";
@@ -9,7 +10,7 @@ import { useAuth } from "../../context/auth-context";
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
-  const { toggle } = useHeader();
+  const { toggle, ShowFilters } = useHeader();
   const { user, signOutHandler } = useAuth();
   const { pathname } = useLocation();
   const forbiddenpaths = ["/", "/login", "/signup"];
@@ -33,6 +34,9 @@ export const Header = () => {
             placeholder="Search"
             className="search-bar"
           /></NavLink>
+          <NavLink to="/search"> <IoMdOptions className="filter-icon" onClick={() => {
+            ShowFilters();
+          }}/></NavLink>
         </div>
       )}
       <div
