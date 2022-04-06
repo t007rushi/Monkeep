@@ -80,9 +80,19 @@
   color: var(--accent-four-color);
 }
 
+.priority-tag{
+  border: 1px solid var(--foreground-color);
+  color:var(--foreground-color);
+  padding:5px;
+  border-radius:10px;
+}
+
 @media only screen and (max-width: 650px) {
   .create-note {
     margin-left: 1rem;
+  }
+  .note-editor-wrapper{
+    margin: initial;
   }
 }
 
