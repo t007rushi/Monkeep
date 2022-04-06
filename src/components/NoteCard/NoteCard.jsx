@@ -62,6 +62,7 @@ export const NoteCard = ({ Note, id }) => {
         })}
       </div>
       <div className="flex-row note-options-set">
+      <p className={Note.priority?"priority-tag":""}>{Note.priority}</p>
         {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
           <Label
             labels={Note.labels}
