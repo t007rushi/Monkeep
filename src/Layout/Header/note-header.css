@@ -7,12 +7,11 @@
 }
 
 .header-mid {
-  width: 40rem;
   background-color: var(--accent-three-color);
   border:none;
+  justify-content:space-between;
 }
 .search-bar {
-  width: 40rem;
   border: none;
   font-size: 1rem;
   padding: 0.5rem;
@@ -71,7 +70,13 @@
   text-decoration: none;
 }
 
-@media only screen and (max-width: 1020px) {
+.filter-icon{
+  font-size:2rem;
+  color:var(--foreground-color);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 730px) {
   .header-mid {
     display: none;
   }
@@ -83,7 +88,7 @@
   }
 }
 
-@media only screen and (min-width: 1020px) {
+@media only screen and (min-width: 730px) {
   .icon-active {
     display: none;
   }
