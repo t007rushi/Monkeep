@@ -4,7 +4,6 @@ import { Editor } from "../Editor/Editor";
 import { BsFillPinFill, BsPin } from "react-icons/bs";
 import { useNotes } from "../../context/notes-context";
 import Colorpalette from "../color/Colorpalette";
-import { IoMdOptions } from "react-icons/io";
 import {
   SET_TITLE,
   PIN,
@@ -14,12 +13,11 @@ import {
   SET_PRIORITY,
 } from "../../constants/notesConstant";
 import { Label } from "../Label/Label";
-import { Filter } from "../Filter/Filter";
 import { Priority } from "../Priority/Priority";
 
 export const CreateNote = () => {
   const [expand, setExpand] = useState(false);
-  const [showFilter, setShowFilter] = useState(false);
+  
 
   const [description, setDescription] = useState("");
   const closerEditor = () => {
@@ -35,8 +33,7 @@ export const CreateNote = () => {
   };
 
   return (
-    <>
-      <div className="flex-row center-it note-editor-wrapper">
+      <div className="flex-row center-it">
         <form
           className={`create-note ${notesData.color}`}
           onSubmit={(e) => {
@@ -138,14 +135,6 @@ export const CreateNote = () => {
             </div>
           )}
         </form>
-        <IoMdOptions
-          className="filter-icon"
-          onClick={() => {
-            setShowFilter((prev) => !prev);
-          }}
-        />
       </div>
-      {showFilter && <Filter />}
-    </>
   );
 };
