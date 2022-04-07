@@ -49,11 +49,30 @@ export const Main = () => {
               <ProtectedRoute ProtectedComp={<NotesPage />}></ProtectedRoute>
             }
           ></Route>
-          <Route path="/archives" element={<ArchivesPage />}></Route>
-
-          <Route path="/labels/:label" element={<LabelsPage />}></Route>
-          <Route path="/trash" element={<TrashPage />}></Route>
-          <Route path="/search" element={<Search/>}></Route>
+          <Route
+            path="/trash"
+            element={
+              <ProtectedRoute ProtectedComp={<TrashPage />}></ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/labels/:label"
+            element={
+              <ProtectedRoute ProtectedComp={<LabelsPage />}></ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/archives"
+            element={
+              <ProtectedRoute ProtectedComp={<ArchivesPage />}></ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/search"
+            element={
+              <ProtectedRoute ProtectedComp={<Search />}></ProtectedRoute>
+            }
+          ></Route>
           <Route path="/profile" element={<></>}></Route>
           <Route path="/*" element={<></>}></Route>
         </Routes>
