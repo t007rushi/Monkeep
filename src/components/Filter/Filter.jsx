@@ -26,7 +26,7 @@ export const Filter = () => {
   </div>
     <div className="flex-row center-it gap-btwn filter-wrapper">
       {/* sort  */}
-      <div className="flex-col">
+      <div className="flex-col gap-btwn">
         <h3>SORT BY</h3>
         <label htmlFor="old ones">
           <input
@@ -60,7 +60,7 @@ export const Filter = () => {
         </label>
       </div>
       {/* Filters */}
-      <div className="flex-col">
+      <div className="flex-col gap-btwn">
         <h3>PRIORITY</h3>
         <label htmlFor="HIGH">
           <input
@@ -105,7 +105,7 @@ export const Filter = () => {
           LOW
         </label>
       </div>
-      <div className="flex-col">
+      <div className="flex-col gap-btwn">
         <h3>LABELS</h3>
         <div className="labels-filter">
           {uniqueLabels.length !== 0 &&
