@@ -1,20 +1,61 @@
 import React from "react";
+import {
+  CLEAR_FILTER,
+  PRIORITY_FILTER,
+  SORT_BY,
+  TAGS_FILTER,
+} from "../../constants/filterConstants";
+import { useFilter } from "../../context/filter-context";
 import { useNotes } from "../../context/notes-context";
 import "./filters.css";
 
 export const Filter = () => {
   const { uniqueLabels } = useNotes();
+  const { filterState, filterDispatcher } = useFilter();
   return (
+    <>
+    <div className="flex-row gap-btwn filter-clear-op">
+    <h3>FILTERS</h3>
+    <h3
+      onClick={() => {
+        filterDispatcher({ type: CLEAR_FILTER });
+      }}
+    >
+      CLEAR
+    </h3>
+  </div>
     <div className="flex-row center-it gap-btwn filter-wrapper">
       {/* sort  */}
       <div className="flex-col">
         <h3>SORT BY</h3>
         <label htmlFor="old ones">
-          <input type="radio" name="sortbydate" />
+          <input
+            type="radio"
+            value="old"
+            name="sortbydate"
+            checked={filterState.sortby === "old"}
+            onChange={(e) => {
+              filterDispatcher({
+                type: SORT_BY,
+                payload: e.target.value,
+              });
+            }}
+          />
           Old Ones
         </label>
         <label htmlFor="Latest">
-          <input type="radio" name="sortbydate" />
+          <input
+            type="radio"
+            value="new"
+            name="sortbydate"
+            checked={filterState.sortby === "new"}
+            onChange={(e) => {
+              filterDispatcher({
+                type: SORT_BY,
+                payload: e.target.value,
+              });
+            }}
+          />
           Latest
         </label>
       </div>
@@ -22,15 +63,45 @@ export const Filter = () => {
       <div className="flex-col">
         <h3>PRIORITY</h3>
         <label htmlFor="HIGH">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            value="high"
+            checked={filterState.priorities.includes("high")}
+            onChange={(e) => {
+              filterDispatcher({
+                type: PRIORITY_FILTER,
+                payload: e.target.value,
+              });
+            }}
+          />
           HIGH
         </label>
         <label htmlFor="MEDIUM">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            value="medium"
+            checked={filterState.priorities.includes("medium")}
+            onChange={(e) => {
+              filterDispatcher({
+                type: PRIORITY_FILTER,
+                payload: e.target.value,
+              });
+            }}
+          />
           MEDIUM
         </label>
         <label htmlFor="LOW">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            value="low"
+            checked={filterState.priorities.includes("low")}
+            onChange={(e) => {
+              filterDispatcher({
+                type: PRIORITY_FILTER,
+                payload: e.target.value,
+              });
+            }}
+          />
           LOW
         </label>
       </div>
@@ -49,8 +120,12 @@ export const Filter = () => {
                   type="checkbox"
                   name="labels"
                   id={label}
-                  checked={null}
+                  checked={filterState.tags.includes(label)}
                   onChange={() => {
+                    filterDispatcher({
+                      type: TAGS_FILTER,
+                      payload: label,
+                    });
                   }}
                 />
                 {label}
@@ -59,5 +134,6 @@ export const Filter = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
