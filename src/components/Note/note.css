@@ -45,6 +45,8 @@
   border-radius: 10px;
   border: 1px solid var(--foreground-color);
   padding: 4px;
+  color: var(--foreground-color);
+  background-color: var(--accent-four-color);
 }
 
 .label-delete {
