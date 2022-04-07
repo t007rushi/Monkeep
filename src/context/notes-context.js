@@ -47,7 +47,7 @@ const NotesProvider = ({ children }) => {
 
   //ADD TO NOTES
   const addNotes = async (Note) => {
-    const newnote = await addNotesService(Note, user);
+    const newnote = await addNotesService({...Note,createdAt: new Date()}, user);
     if (newnote !== undefined) {
       setNote(newnote.notes);
     }
