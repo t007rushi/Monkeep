@@ -2,6 +2,7 @@ import React from "react";
 import "./note-header.css";
 import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import { MdDarkMode, MdLogout, MdLightMode} from "react-icons/md";
+import {BiArrowBack} from "react-icons/bi";
 import {IoMdOptions} from "react-icons/io";
 import { useTheme } from "../../context/theme-context";
 import { useHeader } from "../../context/header-context";
@@ -10,7 +11,7 @@ import { useAuth } from "../../context/auth-context";
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
-  const { toggle, ShowFilters } = useHeader();
+  const { toggle, ShowFilters,showSearch,showSearchbar, hideSearchbar } = useHeader();
   const { user, signOutHandler } = useAuth();
   const { pathname } = useLocation();
   const forbiddenpaths = ["/", "/login", "/signup"];
@@ -26,9 +27,12 @@ export const Header = () => {
           <i>MON</i>KEEP
         </NavLink>
       </div>
-      {user.isUserLoggedIn && (
+      {user.isUserLoggedIn &&  (
+        <div className={ showSearch?"search-active":"search-hide"}>
         <div className="flex-row header-mid">
-          <AiOutlineSearch className="header-icon" />
+        <NavLink to="/notes"> <BiArrowBack className="header-icon" onClick={() =>{
+            hideSearchbar();
+          }} /></NavLink>
           <NavLink to="/search"> <input
             type="text"
             placeholder="Search"
@@ -38,6 +42,7 @@ export const Header = () => {
             ShowFilters();
           }}/></NavLink>
         </div>
+        </div>
       )}
       <div
         className={
@@ -46,21 +51,23 @@ export const Header = () => {
             : "flex-row header-right"
         }
       >
-        <AiOutlineSearch className="icon-active header-icon" />
+       { !showSearch && user.isUserLoggedIn && <AiOutlineSearch className="icon-active header-icon" onClick={() =>{
+showSearchbar()
+        }}/>}
         {theme === "light" ? (
           <MdDarkMode className="header-icon" onClick={toggleTheme} />
         ) : (
           <MdLightMode className="header-icon" onClick={toggleTheme} />
         )}
         {!user.isUserLoggedIn ? (
-          <div className="flex-row header-right-btn">
+          <div className="flex-row ">
             {pathname !== "/login" && (
-              <NavLink to="/login" className="btn auth-btn">
+              <NavLink to="/login" className="btn auth-btn flex-row center-it">
                 LOGIN
               </NavLink>
             )}
             {pathname !== "/signup" && (
-              <NavLink to="/signup" className="btn auth-btn">
+              <NavLink to="/signup" className="btn auth-btn flex-row center-it">
                 SIGNUP
               </NavLink>
             )}

@@ -7,10 +7,17 @@ const HeaderProvider = ({ children }) => {
     const toggle = () => setSidebar(!sidebar);
     const [showFilter, setShowFilter] = useState(false);
     const ShowFilters = () =>{setShowFilter(prev => !prev)}
+    const [showSearch,setShowSearch] = useState(false);
+    const showSearchbar = () =>{
+      setShowSearch(true)
+    }
+    const hideSearchbar = () =>{
+      setShowSearch(false)
+    }
 
   return (
     <HeaderContext.Provider
-      value={{ toggle ,sidebar,showFilter, ShowFilters }}
+      value={{ toggle ,sidebar,showFilter, ShowFilters,showSearch,showSearchbar, hideSearchbar}}
     >
       {children}
     </HeaderContext.Provider>
