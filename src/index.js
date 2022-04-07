@@ -9,6 +9,7 @@ import { ThemeProvider } from "./context/theme-context";
 import { NotesProvider } from "./context/notes-context";
 import { HeaderProvider } from "./context/header-context";
 import { ArchiveProvider } from "./context/archive-context";
+import { FilterProvider } from "./context/filter-context";
 
 // Call make Server
 makeServer();
@@ -19,11 +20,13 @@ ReactDOM.render(
       <ThemeProvider>
         <AuthProvider>
           <HeaderProvider>
-          <NotesProvider>
-            <ArchiveProvider>
-            <App />
-            </ArchiveProvider>
-          </NotesProvider>
+            <NotesProvider>
+              <ArchiveProvider>
+                <FilterProvider>
+                  <App />
+                </FilterProvider>
+              </ArchiveProvider>
+            </NotesProvider>
           </HeaderProvider>
         </AuthProvider>
       </ThemeProvider>

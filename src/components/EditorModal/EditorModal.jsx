@@ -8,7 +8,7 @@ import Colorpalette from "../color/Colorpalette";
 import { Label } from "../Label/Label";
 
 export const EditorModal = ({ id, currentNote, showModal }) => {
-  
+
   const { updateNote } = useNotes();
   const [updateNoted, setUpdateNoted] = useState(currentNote);
 
@@ -82,7 +82,9 @@ export const EditorModal = ({ id, currentNote, showModal }) => {
               addLabels={(label) => {
                 setUpdateNoted({
                   ...updateNoted,
-                  labels:updateNoted.labels.includes(label)?updateNoted.labels:[...updateNoted.labels, label],
+                  labels: updateNoted.labels.includes(label)
+                    ? updateNoted.labels.filter((tag) => tag !== label)
+                    : [...updateNoted.labels, label],
                 });
               }}
             />

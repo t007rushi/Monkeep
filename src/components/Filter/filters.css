@@ -1,0 +1,17 @@
+.filter-wrapper {
+  color: var(--foreground-color);
+  align-items: flex-start;
+}
+
+.labels-filter {
+  width: 8rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.filter-clear-op{
+  margin-left: 1rem;
+  color: var(--foreground-color);
+  cursor: pointer;
+}

@@ -5,8 +5,12 @@ import { useNotes } from "../../context/notes-context.js";
 
 export const NotesPage = () => {
   const { note } = useNotes();
-  const pinnedNotes = note ? note.filter((item) => item.Note.ispin && !item.Note.inTrash) : [];
-  const otherNotes = note ? note.filter((item) => !item.Note.ispin && !item.Note.inTrash) : [];
+  const pinnedNotes = note
+    ? note.filter((item) => item.Note.ispin && !item.Note.inTrash)
+    : [];
+  const otherNotes = note
+    ? note.filter((item) => !item.Note.ispin && !item.Note.inTrash)
+    : [];
   return (
     <div className="notes">
       <CreateNote />

@@ -31,7 +31,7 @@
 }
 
 .note-options-set {
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 10px;
   align-items: baseline;
 }
@@ -45,6 +45,8 @@
   border-radius: 10px;
   border: 1px solid var(--foreground-color);
   padding: 4px;
+  color: var(--accent-one-color);
+  background-color: var(--accent-four-color);
 }
 
 .label-delete {

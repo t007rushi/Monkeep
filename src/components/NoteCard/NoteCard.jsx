@@ -8,6 +8,7 @@ import {
   MdDeleteForever,
   MdOutlineEdit,
 } from "react-icons/md";
+import Moment from "react-moment";
 import Colorpalette from "../color/Colorpalette";
 import { useArchive } from "../../context/archive-context";
 import { matchPath, useLocation } from "react-router-dom";
@@ -35,7 +36,9 @@ export const NoteCard = ({ Note, id }) => {
             togglePin(Note, id);
           }}
         >
-          {(pathname === "/notes" || matchPath("/labels/*", pathname)) &&
+          {(pathname === "/notes" ||
+            pathname === "/search" ||
+            matchPath("/labels/*", pathname)) &&
             (Note.ispin ? <BsFillPinFill /> : <BsPin />)}
         </button>
       </div>
@@ -61,8 +64,14 @@ export const NoteCard = ({ Note, id }) => {
           );
         })}
       </div>
+      <div className="moment">
+        <Moment fromNow>{Note.createdAt}</Moment>
+      </div>
       <div className="flex-row note-options-set">
-        {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
+        <p className={Note.priority ? "priority-tag" : ""}>{Note.priority}</p>
+        {(pathname === "/notes" ||
+          pathname === "/search" ||
+          matchPath("/labels/*", pathname)) && (
           <Label
             labels={Note.labels}
             addLabels={(tag) => {
@@ -71,12 +80,16 @@ export const NoteCard = ({ Note, id }) => {
           />
         )}
 
-        {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
+        {(pathname === "/notes" ||
+          pathname === "/search" ||
+          matchPath("/labels/*", pathname)) && (
           <Colorpalette
             updateColor={(color) => Change_color(Note, id, color)}
           />
         )}
-        {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
+        {(pathname === "/notes" ||
+          pathname === "/search" ||
+          matchPath("/labels/*", pathname)) && (
           <RiInboxArchiveLine
             onClick={() => {
               addToArchive(Note, id);
@@ -84,7 +97,9 @@ export const NoteCard = ({ Note, id }) => {
           />
         )}
 
-        {(pathname === "/notes" || matchPath("/labels/*", pathname)) && (
+        {(pathname === "/notes" ||
+          pathname === "/search" ||
+          matchPath("/labels/*", pathname)) && (
           <FiTrash2
             onClick={() => {
               inTrash(Note, id);

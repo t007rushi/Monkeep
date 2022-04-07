@@ -1,0 +1,17 @@
+.priority-container{
+    color:var(--foreground-color);
+    position: relative;
+}
+.priority-wrapper{
+    background-color:var(--background-color);
+    border : 1px solid var(--foreground-color);
+    position: absolute;
+    padding:10px;
+    border-radius:5px;
+    width: max-content;
+}
+
+.highlight{
+    background-color: var(--foreground-color);
+    color: var(--background-color);
+}
