@@ -64,7 +64,7 @@ export const NoteCard = ({ Note, id }) => {
           );
         })}
       </div>
-      <div className="note-moment">
+      <div className="moment">
         <Moment fromNow>{Note.createdAt}</Moment>
       </div>
       <div className="flex-row note-options-set">
