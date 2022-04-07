@@ -41,6 +41,10 @@
   transition: all 0.1s ease-out;
 }
 
+.bg-active{
+background-color: var(--hover-bg-color);
+}
+
 @media only screen and (max-width: 750px) {
   .sidebar {
     padding: 0;

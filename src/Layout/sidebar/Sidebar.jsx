@@ -1,13 +1,12 @@
 import React from "react";
 import "./sidebar.css";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import sidebarData from "../../data/sidebarData";
 import { useHeader } from "../../context/header-context";
 import { useNotes } from "../../context/notes-context";
 import { MdOutlineLabel, MdOutlineNote } from "react-icons/md";
 
 export const Sidebar = () => {
-  const navigator = useNavigate();
   const { sidebar } = useHeader();
   const { uniqueLabels } = useNotes();
   const labelArr = uniqueLabels.map((label) => {
@@ -23,18 +22,23 @@ export const Sidebar = () => {
     ...labelArr,
     ...sidebarData,
   ];
+
+  const NavStyles =({isActive}) =>{
+    return isActive?"flex-row gap-btwn cur-point sidebar-item bg-active":"flex-row gap-btwn cur-point sidebar-item"
+      }
+
   return (
     <ul className="flex-row flex-col  gap-btwn sidebar active">
       {sidebarArr.map(({ title, navigate, Icon }) => {
         return (
-          <li
+          <NavLink to={navigate}
+          title={title}
             key={title}
-            className="flex-row gap-btwn cur-point sidebar-item "
-            onClick={() => navigator(navigate)}
+            className={NavStyles}
           >
             <Icon />
             <span className={sidebar ? "side-hide" : "active"}>{title}</span>
-          </li>
+          </NavLink>
         );
       })}
     </ul>
