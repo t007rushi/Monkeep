@@ -8,7 +8,6 @@ export const Priority = ({ priority, updatePriority }) => {
   return (
     <div className="priority-container" onClick={(e) => e.preventDefault()}>
       <RiArrowUpDownFill
-        title="priority"
         className="priority-icon"
         onClick={() => showpriorityField((prev) => !prev)}
       />

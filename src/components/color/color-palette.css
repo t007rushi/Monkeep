@@ -14,10 +14,10 @@
   height: 1.5rem;
   border-radius: 50%;
   padding: 5px;
-  border: 1px solid var(--foreground-color);
+  border:1px solid var(--foreground-color);
 }
 
-.default-color {
+.default-color{
   background-color: var(--background-color);
   border: 1px solid var(--foreground-color);
 }
@@ -53,8 +53,4 @@
 
 .color-9 {
   background-color: var(--note-color-9);
-}
-
-.color-palette-icon {
-  font-size: 1.5rem;
 }

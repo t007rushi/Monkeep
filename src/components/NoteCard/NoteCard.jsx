@@ -14,7 +14,6 @@ import { useArchive } from "../../context/archive-context";
 import { matchPath, useLocation } from "react-router-dom";
 import { Label } from "../Label/Label";
 import { EditorModal } from "../EditorModal/EditorModal";
-import "../Note/note.css";
 
 export const NoteCard = ({ Note, id }) => {
   const { togglePin, Change_color, inTrash, removeFromnote, tagUpdate } =
@@ -92,8 +91,6 @@ export const NoteCard = ({ Note, id }) => {
           pathname === "/search" ||
           matchPath("/labels/*", pathname)) && (
           <RiInboxArchiveLine
-            title="Archive"
-            className="note-icons"
             onClick={() => {
               addToArchive(Note, id);
             }}
@@ -104,8 +101,6 @@ export const NoteCard = ({ Note, id }) => {
           pathname === "/search" ||
           matchPath("/labels/*", pathname)) && (
           <FiTrash2
-            title="Trash"
-            className="note-icons"
             onClick={() => {
               inTrash(Note, id);
             }}
@@ -113,40 +108,26 @@ export const NoteCard = ({ Note, id }) => {
         )}
         {pathname === "/archives" && (
           <RiInboxUnarchiveLine
-            title="Unarchive"
-            className="note-icons"
             onClick={() => {
               restoreToArchive(id);
             }}
           />
         )}
         {pathname === "/archives" && (
-          <MdDeleteForever
-            title="Delete"
-            className="note-icons"
-            onClick={() => deleteToArchive(id)}
-          />
+          <MdDeleteForever onClick={() => deleteToArchive(id)} />
         )}
         {pathname === "/trash" && (
           <MdRestoreFromTrash
-            title="Restore"
-            className="note-icons"
             onClick={() => {
               inTrash(Note, id);
             }}
           />
         )}
         {pathname === "/trash" && (
-          <MdDeleteForever
-            title="Delete"
-            className="note-icons"
-            onClick={() => removeFromnote(id)}
-          />
+          <MdDeleteForever onClick={() => removeFromnote(id)} />
         )}
         {pathname !== "/trash" && (
           <MdOutlineEdit
-            title="Edit"
-            className="note-icons"
             onClick={() => {
               showModal(true);
             }}
