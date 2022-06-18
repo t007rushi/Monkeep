@@ -11,6 +11,7 @@ export const Label = ({ labels, addLabels }) => {
   return (
     <div className="labels-container" onClick={(e) => e.preventDefault()}>
       <MdOutlineLabel
+        title="label"
         className="label-icon"
         onClick={() => showLabelField((prev) => !prev)}
       />
