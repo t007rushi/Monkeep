@@ -20,6 +20,7 @@ const Colorpalette = ({ updateColor }) => {
     <div>
       <div className="color-palette-container">
         <MdOutlineColorLens
+          title="colors"
           className="color-palette-icon"
           onClick={() => setShowColors((prev) => !prev)}
         />
